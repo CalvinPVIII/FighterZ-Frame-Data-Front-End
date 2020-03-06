@@ -1,10 +1,10 @@
 import React from 'react';
 
 
-function Character() {
+function Character(props) {
   return (
     <div >
-    <h1> </h1>
+    <h1> {this.props}</h1>
     </div>
   );
 }

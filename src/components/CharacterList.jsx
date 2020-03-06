@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 
 class Character extends React.Component {
   constructor(props){
@@ -44,7 +44,7 @@ class Character extends React.Component {
           return (
             <div>
               {this.state.characterList.map((character)=>
-                <img src={character.character.bio.pictures[0]}/>
+              <Link to={'/character'}>   <img src={character.character.bio.pictures[0]}/> </Link>
               )}
             </div>
           );

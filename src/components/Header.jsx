@@ -3,9 +3,10 @@ import logo from '../images/dbfzlogo.png'
 
 function Header() {
   return (
-    <div >
+    <div className='header'>
     <img src={logo}/>
-    </div>
+
+  </div>
   );
 }
 
