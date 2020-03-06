@@ -4,7 +4,7 @@ import React from 'react';
 function Character(props) {
   return (
     <div >
-    <h1> {this.props}</h1>
+    <h1> {props.character.bio.name}</h1>
     </div>
   );
 }
