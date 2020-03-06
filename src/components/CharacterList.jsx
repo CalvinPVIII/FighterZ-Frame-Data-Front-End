@@ -12,43 +12,44 @@ class Character extends React.Component {
   }
 
 
+
   componentDidMount() {
-        fetch('http://localhost:3001/characters')
-        .then(res => res.json())
-        .then(
-          (result) => {
-            this.setState({
-              isLoaded: true,
-              characterList: result
-            });
-          },
-          (error) => {
-            console.log(error);
-            this.setState({
-              isLoaded: true,
-              error
-            });
-          }
-        )
-    }
+    fetch('http://localhost:3001/characters')
+    .then(res => res.json())
+    .then(
+      (result) => {
+        this.setState({
+          isLoaded: true,
+          characterList: result
+        });
+      },
+      (error) => {
+        console.log(error);
+        this.setState({
+          isLoaded: true,
+          error
+        });
+      }
+    )
+  }
 
   render(){
 
+    const { error, isLoaded, items } = this.state;
+    if (error) {
+      return <div>Error: {error.message}</div>;
+      } else if (!isLoaded) {
+        return <div>Loading...</div>;
+        } else {
+          return (
+            <div>
+              {this.state.characterList.map((character)=>
+                <img src={character.character.bio.pictures[0]}/>
+              )}
+            </div>
+          );
+        }
+      }
+    }
 
-const { error, isLoaded, items } = this.state;
-if (error) {
-  return <div>Error: {error.message}</div>;
-} else if (!isLoaded) {
-  return <div>Loading...</div>;
-} else {
-  return (
-    <ul>
-     <h1> {this.state.characterList[1].character.moves[0]["FIRST ACTIVE"]} </h1>
-     <img src={this.state.characterList[1].character.bio.pictures[0]}/>
-    </ul>
-  );
-}
-}
-}
-
-export default Character;
+    export default Character;
