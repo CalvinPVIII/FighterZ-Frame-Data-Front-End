@@ -22,9 +22,6 @@ class Character extends React.Component {
               characterList: result
             });
           },
-          // Note: it's important to handle errors here
-          // instead of a catch() block so that we don't swallow
-          // exceptions from actual bugs in components.
           (error) => {
             console.log(error);
             this.setState({
@@ -46,7 +43,8 @@ if (error) {
 } else {
   return (
     <ul>
-     <h1> {this.state.characterList[1].character.bio.name} </h1>
+     <h1> {this.state.characterList[1].character.moves[0]["FIRST ACTIVE"]} </h1>
+     <img src={this.state.characterList[1].character.bio.pictures[0]}/>
     </ul>
   );
 }

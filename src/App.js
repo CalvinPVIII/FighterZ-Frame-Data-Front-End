@@ -6,6 +6,7 @@ import CharacterList from './components/CharacterList'
 function App() {
   return (
     <div >
+      <Header/>
       <CharacterList/>
     </div>
   );

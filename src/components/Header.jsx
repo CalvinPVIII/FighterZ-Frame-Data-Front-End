@@ -1,10 +1,10 @@
 import React from 'react';
-
+import logo from '../images/dbfzlogo.png'
 
 function Header() {
   return (
     <div >
-    <h1> </h1>
+    <img src={logo}/>
     </div>
   );
 }
