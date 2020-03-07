@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
-import Header from './components/Header'
 import Footer from './components/Footer'
 import CharacterList from './components/CharacterList'
 import Character from './components/Character'
@@ -61,7 +60,6 @@ render(){
       } else {
         return (
           <div >
-            <Header/>
             <Switch>
               <Route exact path='/' render={()=><CharacterList characterList={this.state.characterList} onCharacterSelect={this.handleSelectingCharacter} />} />
               <Route path='/character' render={()=><Character character={this.state.selectedCharacter} />} />
