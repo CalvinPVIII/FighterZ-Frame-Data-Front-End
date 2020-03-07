@@ -2,9 +2,10 @@ import React from 'react';
 
 
 function Character(props) {
+  console.log(props);
   return (
     <div >
-    <h1> {props.character.bio.name}</h1>
+    <h1> {props.character.character.bio.name}</h1>
     </div>
   );
 }

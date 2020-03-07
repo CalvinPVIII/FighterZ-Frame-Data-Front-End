@@ -19,14 +19,6 @@ class App extends React.Component {
     this.handleSelectingCharacter = this.handleSelectingCharacter.bind(this)
   }
 
-  handleSelectingCharacter(id){
-    this.state.characterList.map(function(character){
-      if (character.id === id) {
-        this.setState({selectedCharacter: character});
-      }
-    }
-  )
-}
 
 
 componentDidMount() {
@@ -37,7 +29,7 @@ componentDidMount() {
       this.setState({
         isLoaded: true,
         characterList: result,
-        selectedCharacter: result[0].character
+        selectedCharacter: result[0]
       });
     },
     (error) => {
@@ -48,6 +40,15 @@ componentDidMount() {
       });
     }
   )
+}
+handleSelectingCharacter(id){
+  let newCharacter;
+  this.state.characterList.map(function(character){
+    if (character.id === id) {
+      newCharacter = character
+    }
+  })
+this.setState({selectedCharacter: newCharacter});
 }
 
 render(){
@@ -62,7 +63,7 @@ render(){
           <div >
             <Header/>
             <Switch>
-              <Route exact path='/' render={()=><CharacterList characterList={this.state.characterList} />} />
+              <Route exact path='/' render={()=><CharacterList characterList={this.state.characterList} onCharacterSelect={this.handleSelectingCharacter} />} />
               <Route path='/character' render={()=><Character character={this.state.selectedCharacter} />} />
             </Switch>
           </div>
