@@ -4,83 +4,83 @@ import React from 'react';
 function Character(props) {
   let accentColor = 'rgba(0, 0, 0,0)'
   if (props.character.character.bio.name === 'Android 21') {
-    accentColor = 'rgba(224, 87, 255,.3)'
+    accentColor = '#A63AB0'
   }else if (props.character.character.bio.name === 'Android 16') {
-    accentColor = 'rgba(0, 255, 94,.3)'
+    accentColor = '#387763'
   }else if (props.character.character.bio.name === 'Android 17') {
-    accentColor = 'rgba(0, 234, 255,.3)'
+    accentColor = '#438388'
   }else if (props.character.character.bio.name === 'Android 18') {
-    accentColor = 'rgba(59, 108, 255,.5)'
+    accentColor = '#4B79CC'
   }else if (props.character.character.bio.name === 'Bardock') {
-    accentColor = 'rgba(0, 145, 126,.5)'
+    accentColor = '#436577'
   }else if (props.character.character.bio.name === 'Beerus') {
-    accentColor = 'rgba(160, 97, 255,.5)'
+    accentColor = '#7669B4'
   }else if (props.character.character.bio.name === 'DBS Broly') {
-    accentColor = 'rgba(59, 255, 85,.5)'
+    accentColor = '#2F7928'
   }else if (props.character.character.bio.name === 'DBZ Broly') {
-    accentColor = 'rgba(59, 255, 137,.4)'
+    accentColor = '#1A795A'
   }else if (props.character.character.bio.name === 'Captain Ginyu') {
-    accentColor = 'rgba(255, 59, 235,.3)'
+    accentColor = '#D45890'
   }else if (props.character.character.bio.name === 'Cell') {
-    accentColor = 'rgba(59, 255, 147,.5)'
+    accentColor = '#5BA574'
   }else if (props.character.character.bio.name === 'Cooler') {
-    accentColor = 'rgba(104, 48, 255,.3)'
+    accentColor = '#4A5EA3'
   }else if (props.character.character.bio.name === 'Frieza') {
-    accentColor = 'rgba(160, 97, 255,.6)'
+    accentColor = '#B180E2'
   }else if (props.character.character.bio.name === 'Gogeta') {
-    accentColor = 'rgba(0, 81, 255,.5)'
+    accentColor = '#324486'
   }else if (props.character.character.bio.name === 'Adult Gohan') {
-    accentColor = 'rgba(43, 139, 255,.5)'
+    accentColor = '#5B768E'
   }else if (props.character.character.bio.name === 'Teen Gohan') {
-    accentColor = 'rgba(255, 38, 125,.3)'
+    accentColor = '#C15669'
   }else if (props.character.character.bio.name === 'Goku') {
-    accentColor = 'rgba(255, 38, 125,.3)'
+    accentColor = '#B14F5B'
   }else if (props.character.character.bio.name === 'Super Saiyan Goku') {
-    accentColor = 'rgba(255, 38, 175,.2)'
+    accentColor = '#C97891'
   }else if (props.character.character.bio.name === 'Super Saiyan Blue Goku') {
-    accentColor = 'rgba(0, 213, 255,.5)'
+    accentColor = '#7BCBE6'
   }else if (props.character.character.bio.name === 'GT Goku') {
-    accentColor = 'rgba(0, 47, 255,.5)'
+    accentColor = '#7379C3'
   }else if (props.character.character.bio.name === 'Super Saiyan Rosé Goku Black') {
-    accentColor = 'rgba(25, 0, 255,.4)'
+    accentColor = '#826BC8'
   }else if (props.character.character.bio.name === 'Gotenks') {
-    accentColor = 'rgba(48, 105, 240,.5)'
+    accentColor = '#355795'
   }else if (props.character.character.bio.name === 'Hit') {
-    accentColor = 'rgba(48, 240, 211,.6)'
+    accentColor = '#91D3DC'
   }else if (props.character.character.bio.name === 'Janemba') {
-    accentColor = 'rgba(90, 48, 240,.3)'
+    accentColor = '#7B5CA8'
   }else if (props.character.character.bio.name === 'Jiren') {
-    accentColor = 'rgba(242, 5, 5,.6)'
+    accentColor = '#E2252A'
   }else if (props.character.character.bio.name === 'Kid Buu') {
-    accentColor = 'rgba(166, 0, 212,.3)'
+    accentColor = '#BD6ABE'
   }else if (props.character.character.bio.name === 'Kefla') {
-    accentColor = 'rgba(250, 47, 47,.6)'
+    accentColor = '#C24344'
   }else if (props.character.character.bio.name === 'Krillin') {
-    accentColor = 'rgba(252, 233, 83,.3)'
+    accentColor = '#FBFBCA'
   }else if (props.character.character.bio.name === 'Majin Buu') {
-    accentColor = 'rgba(166, 0, 212,.3)'
+    accentColor = '#A14A9C'
   }else if (props.character.character.bio.name === 'Nappa') {
-    accentColor = 'rgba(217, 200, 72,.3)'
+    accentColor = '#8D4B10'
   }else if (props.character.character.bio.name === 'Piccolo') {
-    accentColor = 'rgba(0, 38, 255,.4)'
+    accentColor = '#37378D'
   }else if (props.character.character.bio.name === 'Tien Shinhan') {
-    accentColor = 'rgba(252, 233, 83,.3)'
+    accentColor = '#E5F09B'
   }else if (props.character.character.bio.name === 'Trunks') {
-    accentColor = 'rgba(43, 139, 255,.5)'
+    accentColor = '#A5BDFF'
   }else if (props.character.character.bio.name === 'Vegeta') {
-    accentColor = 'rgba(3, 117, 255,.5)'
+    accentColor = '#6F73C2'
   }else if (props.character.character.bio.name === 'Super Saiyan Vegeta') {
-    accentColor = 'rgba(3, 184, 255,.6)'
+    accentColor = '#6DA9DF'
   }else if (props.character.character.bio.name === 'Super Saiyan Blue Vegeta') {
-    accentColor = 'rgba(0, 213, 255,.5)'
+    accentColor = '#7BCBE6'
   }else if (props.character.character.bio.name === 'Vegito') {
-    accentColor = 'rgba(0, 170, 255,.6)'
+    accentColor = '#6C8CD4'
   }else if (props.character.character.bio.name === 'Videl') {
-    accentColor = 'rgba(72, 0, 255,.3)'
+    accentColor = '#A13C9F'
   }else if (props.character.character.bio.name === 'Yamcha') {
-    accentColor = 'rgba(252, 233, 83,.3)'
+    accentColor = '#DFDE9A'
   }else if (props.character.character.bio.name === 'Zamasu') {
-    accentColor = 'rgba(166, 128, 255,.6)'
+    accentColor = '#8F74BA'
   }
 
 
@@ -137,7 +137,7 @@ const component = {
       .movesHeader {
         display: flex;
         justify-content: space-evenly;
-        border-bottom: 1px solid blue;
+        border-bottom: 1px solid black;
         background-color: #cc4c29;
         // border-top-left-radius: 60px;
         // border-top-right-radius: 60px
@@ -197,6 +197,7 @@ const component = {
             display: flex;
             justify-content: space-evenly;
             background-color: #cc4c29;
+            border-bottom: 1px solid black;
           }
         .row {
           width: 33%;
@@ -256,6 +257,7 @@ const component = {
         display: flex;
         justify-content: space-evenly;
         background-color: #cc4c29;
+        border-bottom: 1px solid black;
       }
       .supersRow {
           display: flex;
@@ -311,6 +313,7 @@ const component = {
       border-top: 1px solid black;
       border-bottom: 1px solid black;
       text-align: center;
+
     }
     .combosCard {
       border: 1px solid black;
