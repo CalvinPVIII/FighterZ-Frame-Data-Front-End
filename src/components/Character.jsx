@@ -11,6 +11,7 @@ function Character(props) {
         <img className="characterImg"src={props.character.character.bio.pictures[3]}/>
       </div>
         <div className='midPanel'>
+          <h1 className="title">Moves</h1>
       <div className="movesCard">
         <div className="movesHeader">
           <h1> Move</h1>
@@ -61,6 +62,7 @@ function Character(props) {
       `}</style>
     </div>
     <div className='rightPanel'>
+        <h1 className="rightTitle">Assists</h1>
     <div className='assistCard'>
       <div className='assistHeader'>
         <h1 className="assistH2"> Type</h1>
@@ -100,7 +102,6 @@ function Character(props) {
             width: 30vw;
             border: 1px solid black;
             margin-right: 5%;
-            height: 10%
           }
           .characterComponent {
             display: flex;
@@ -122,6 +123,7 @@ function Character(props) {
           `}</style>
 
   </div>
+    <h1 className="rightTitle">Supers</h1>
   <div className="supersCard">
     <div className='supersHeader'>
       <h1> Move</h1>
@@ -154,38 +156,65 @@ function Character(props) {
           width: 30vw;
           border: 1px solid black;
           margin-right: 5%;
-          height: 10%
+
         }
         `}
 
   </style>
+  <h1 className="title">Combos</h1>
   <div className="combosCard">
-    <div className="combosHeader">
-      <h1>Combo</h1>
-    </div>
     <div className='comboNotation'>
       {props.character.character.combos.map((combo)=>
+        <div>
         <div className="comboRow">
-          <h2 className='row'> {combo['position']}</h2>
-          <h2 className='row'> {combo['notation']}</h2>
+          <div className="comboHeader">
+          <h2> {combo['position']}</h2>
+        </div>
+          <h2 className='notation'> {combo['notation']}</h2>
           <div >
-            <iframe className='video' src={combo['video']} frameborder="0" allowfullscreen ></iframe>
-          </div><style jsx>{`
-            .video{
-              height: 40vh;
-              width: 40vw;
-
-            }
-            .rightPanel {
-              display: flex;
-              flex-direction: column;
-
-            }
-            `}</style>
+            <iframe className='video' src={combo['video']} ></iframe>
+          </div>
+        </div>
         </div>
       )}
     </div>
   </div>
+  <style jsx>{`
+    .video{
+      height: 40vh;
+      width: 40vw;
+      border: 2px solid green
+    }
+    .notation {
+      padding: 1%;
+    }
+    .rightPanel {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-left: 2vw;
+    }
+    .comboHeader {
+      border: 1px solid black;
+      text-align: center;
+    }
+    .combosCard {
+      border: 1px solid black;
+      width: 40vw;
+      margin-left: -1vw;
+
+    }
+    .comboRow {
+      text-align: center
+    }
+    .title{
+      text-align: center
+    }
+    .rightTitle {
+      text-align: center;
+      margin-right: 10vw;
+    }
+    `}</style>
   </div>
 </div>
     </div>

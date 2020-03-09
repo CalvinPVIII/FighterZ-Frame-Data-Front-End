@@ -28,7 +28,7 @@ componentDidMount() {
       this.setState({
         isLoaded: true,
         characterList: result,
-        selectedCharacter: result[0]
+        selectedCharacter: result[4]
       });
     },
     (error) => {
