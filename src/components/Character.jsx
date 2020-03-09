@@ -15,53 +15,47 @@ function Character(props) {
           <h1 className="movesH2"> Advantage</h1>
         </div>
         <div className="movesData">
-          <div className="movesName">
-            {props.character.character.moves.map((move)=>
-              <h2 className="tableRow"> {move['MOVE']}</h2>
-              )}
+          {props.character.character.moves.map((move)=>
+            <div className="tableRow">
+              <h2 className="moveRow"> {move['MOVE']}</h2>
+              <h2 className="startupRow"> {move['FIRST ACTIVE']}</h2>
+              <h2 className="advantageRow"> {move['ADVANTAGE']}</h2>
             </div>
-    <div className="movesStartup">
-      {props.character.character.moves.map((move)=>
-        <h2 className="tableRow"> {move['FIRST ACTIVE']}</h2>
-        )}
-    </div>
-    <div className="movesAdvantage">
-      {props.character.character.moves.map((move)=>
-        <h2 className="tableRow"> {move['ADVANTAGE']}</h2>
-        )}
-    </div>
+            )}
   </div>
   </div>
   <style jsx>{`
-      .movesName {
-        border-left: 1px solid black;
-        border-right: 1px solid black;
-        width: 15%
-      }
-      .movesStartup {
-        border-right: 1px solid black;
-      }
-      .movesAdvantage {
-        border-right: 1px solid black;
-      }
       .movesHeader {
         display: flex;
-        justifyContent: space-evenly;
-        background-color: white;
-        width: 32.3%;
+        justify-content: space-evenly;
+        border-bottom: 1px solid blue;
       }
-      .movesData {
-        display: flex;
-        justifyContent: space-around;
+      .movesCard {
+        width: 33vw;
+        border: 1px solid black;
+      }
+      .moveRow {
+        width: 30%;
+
+      }
+      .startupRow {
+        width: 30%;
+
+      }
+      .advantageRow {
+        width: 30%;
+
       }
       .characterImg {
         float: left;
       }
-      .movesH2 {
-        padding-right: 6vw
-      }
       .tableRow {
-        border-bottom: 1px solid black
+        display: flex;
+        justify-content: space-around;
+        padding-left: 5%;
+        border-bottom: 1px solid black;
+
+
       }
       `}</style>
     <div className='assistCard'>
