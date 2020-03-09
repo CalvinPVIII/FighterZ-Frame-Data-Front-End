@@ -148,6 +148,22 @@ function Character(props) {
         `}
 
   </style>
+  <div className="combosCard">
+    <div className="combosHeader">
+      <h1>Combo</h1>
+    </div>
+    <div className='comboNotation'>
+      {props.character.character.combos.map((combo)=>
+        <div className="comboRow">
+          <h2 className='row'> {combo['position']}</h2>
+          <h2 className='row'> {combo['notation']}</h2>
+          <div>
+            <iframe src={combo['video']} frameborder="0" width="100%" height="100%" allowfullscreen ></iframe>
+          </div>
+        </div>
+      )}
+    </div>
+  </div>
 </div>
     </div>
   );
