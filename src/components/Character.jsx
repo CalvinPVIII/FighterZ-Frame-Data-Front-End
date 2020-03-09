@@ -7,12 +7,12 @@ function Character(props) {
     <div>
       <h1> {props.character.character.bio.name}</h1>
       <div className='characterComponent'>
-      <img className="characterImg"src={props.character.character.bio.pictures[3]}/>
+        <img className="characterImg"src={props.character.character.bio.pictures[3]}/>
       <div className="movesCard">
         <div className="movesHeader">
-          <h1 className="movesH2"> Move</h1>
-          <h1 className="movesH2"> Startup</h1>
-          <h1 className="movesH2"> Advantage</h1>
+          <h1> Move</h1>
+          <h1> Startup</h1>
+          <h1> Advantage</h1>
         </div>
         <div className="movesData">
           {props.character.character.moves.map((move)=>
@@ -33,6 +33,7 @@ function Character(props) {
       .movesCard {
         width: 33vw;
         border: 1px solid black;
+        border-radius: 60px;
       }
       .moveRow {
         width: 30%;
@@ -45,9 +46,6 @@ function Character(props) {
       .advantageRow {
         width: 30%;
 
-      }
-      .characterImg {
-        float: left;
       }
       .tableRow {
         display: flex;
@@ -65,36 +63,44 @@ function Character(props) {
         <h1 className="assistH2"> Blockstun</h1>
       </div>
       <div className="assistData">
-        <div className="assistType">
           {props.character.character.assists.map((assist)=>
-            <h2> {assist['TYPE']}</h2>
+            <div className="assistRow">
+              <h2 className='row'> {assist['TYPE']}</h2>
+              <h2 className='row'> {assist['STARTUP']}</h2>
+              <h2 className='row'> {assist['BLOCKSTUN']}</h2>
+            </div>
           )}
-        </div>
-        <div className="assistStartup">
-          {props.character.character.assists.map((assist)=>
-            <h2> {assist['STARTUP']}</h2>
-          )}
-        </div>
+
       </div>
       <style jsx>{`
           .assistHeader {
             display: flex;
-            justifyContent: space-evenly;
+            justify-content: space-evenly;
             background-color: white;
           }
-          .assistH2 {
-            padding-right: 1vw
-          }
+        .row {
+          width: 33%;
+        }
           .assistType{
             border-left: 1px solid black;
             border-right: 1px solid black;
           }
+          .assistRow {
+            display: flex;
+            justify-content: space-around;
+            padding-left: 5%;
+            border-bottom: 1px solid black;
+          }
           .assistCard {
-            width: 10%
+            width: 30vw;
+            border: 1px solid black;
+            margin-right: 5%;
+            height: 10%
           }
           .characterComponent {
             display: flex;
-            flex-flow: row wrap
+            flex-flow: row wrap;
+            justify-content: space-between;
           }
           .characterImg {
             height: 100%;
@@ -104,6 +110,44 @@ function Character(props) {
           `}</style>
 
   </div>
+  <div className="supersCard">
+    <div className='supersHeader'>
+      <h1> Move</h1>
+      <h1> Startup</h1>
+      <h1> Advantage</h1>
+    </div>
+    <div className='supersData'>
+      {props.character.character.supers.map((move)=>
+        <div className="assistRow">
+          <h2 className='row'> {move['MOVE']}</h2>
+          <h2 className='row'> {move['STARTUP']}</h2>
+          <h2 className='row'> {move['ADVANTAGE']}</h2>
+        </div>
+      )}
+    </div>
+  </div>
+  <style jsx>{`
+      .supersHeader {
+        display: flex;
+        justify-content: space-evenly;
+        background-color: white;
+      }
+      .supersRow {
+          display: flex;
+          justify-content: space-around;
+          padding-left: 5%;
+          border-bottom: 1px solid black;
+        }
+        .supersCard {
+          width: 30vw;
+          border: 1px solid black;
+          margin-left: 63.3vw;
+          height: 10%;
+          margin-top: -205vh;
+        }
+        `}
+
+  </style>
 </div>
     </div>
   );
