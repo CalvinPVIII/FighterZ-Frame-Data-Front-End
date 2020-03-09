@@ -7,7 +7,10 @@ function Character(props) {
     <div>
       <h1> {props.character.character.bio.name}</h1>
       <div className='characterComponent'>
+        <div className='leftPanel'>
         <img className="characterImg"src={props.character.character.bio.pictures[3]}/>
+      </div>
+        <div className='midPanel'>
       <div className="movesCard">
         <div className="movesHeader">
           <h1> Move</h1>
@@ -56,6 +59,8 @@ function Character(props) {
 
       }
       `}</style>
+    </div>
+    <div className='rightPanel'>
     <div className='assistCard'>
       <div className='assistHeader'>
         <h1 className="assistH2"> Type</h1>
@@ -99,12 +104,19 @@ function Character(props) {
           }
           .characterComponent {
             display: flex;
-            flex-flow: row wrap;
+            flex-flow: column wrap;
             justify-content: space-between;
+            height: 100vh
           }
           .characterImg {
-            height: 100%;
-            width: 25%
+            max-width: 1228px;
+          height: 100vh;
+          width: 25vw;
+          border:1px solid blue;
+          }
+          .leftPanel {
+            max-width: 1228px;
+            height: 100vh;
           }
 
           `}</style>
@@ -141,9 +153,8 @@ function Character(props) {
         .supersCard {
           width: 30vw;
           border: 1px solid black;
-          margin-left: 63.3vw;
-          height: 10%;
-          margin-top: -205vh;
+          margin-right: 5%;
+          height: 10%
         }
         `}
 
@@ -157,12 +168,24 @@ function Character(props) {
         <div className="comboRow">
           <h2 className='row'> {combo['position']}</h2>
           <h2 className='row'> {combo['notation']}</h2>
-          <div>
-            <iframe src={combo['video']} frameborder="0" width="100%" height="100%" allowfullscreen ></iframe>
-          </div>
+          <div >
+            <iframe className='video' src={combo['video']} frameborder="0" allowfullscreen ></iframe>
+          </div><style jsx>{`
+            .video{
+              height: 40vh;
+              width: 40vw;
+
+            }
+            .rightPanel {
+              display: flex;
+              flex-direction: column;
+
+            }
+            `}</style>
         </div>
       )}
     </div>
+  </div>
   </div>
 </div>
     </div>
