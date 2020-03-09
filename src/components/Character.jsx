@@ -106,7 +106,7 @@ const component = {
             font-size: 800%;
             color: white;
             font-family: 'Neuton', serif;
-            text-shadow: 3px 3px black
+            text-shadow: 3px 3px ${accentColor}
           }
           .charImg {
             float: right;
@@ -138,14 +138,13 @@ const component = {
         display: flex;
         justify-content: space-evenly;
         border-bottom: 1px solid black;
-        background-color: #cc4c29;
-        // border-top-left-radius: 60px;
-        // border-top-right-radius: 60px
+        background-color: ${accentColor};
+
       }
       .movesCard {
         width: 33vw;
         border: 1px solid black;
-        // border-radius: 60px;
+        background-color: white;
       }
 
       .moveRow {
@@ -169,7 +168,7 @@ const component = {
 
       }
       .movesData {
-        background-color: ${accentColor};
+        background-color:
 
       }
       `}</style>
@@ -196,7 +195,7 @@ const component = {
           .assistHeader {
             display: flex;
             justify-content: space-evenly;
-            background-color: #cc4c29;
+            background-color: ${accentColor};
             border-bottom: 1px solid black;
           }
         .row {
@@ -216,6 +215,7 @@ const component = {
             width: 30vw;
             border: 1px solid black;
             margin-right: 5%;
+            background-color: white;
           }
           .characterComponent {
             display: flex;
@@ -228,7 +228,7 @@ const component = {
             height: 100vh;
           }
           .assistRow {
-            background-color: ${accentColor}
+            background-color:
 
           }
 
@@ -256,7 +256,7 @@ const component = {
       .supersHeader {
         display: flex;
         justify-content: space-evenly;
-        background-color: #cc4c29;
+        background-color: ${accentColor};
         border-bottom: 1px solid black;
       }
       .supersRow {
@@ -269,6 +269,7 @@ const component = {
           width: 30vw;
           border: 1px solid black;
           margin-right: 5%;
+          background-color: white;
         }
 
         `}
@@ -281,7 +282,7 @@ const component = {
         <div className='comboEntry'>
         <div className="comboRow">
           <div className="comboHeader">
-          <h2> {combo['position']}</h2>
+          <h2> {combo['position'].charAt(0).toUpperCase() + combo['position'].slice(1)}</h2>
         </div>
           <h2 className='notation'> {combo['notation']}</h2>
           <div >
@@ -313,12 +314,14 @@ const component = {
       border-top: 1px solid black;
       border-bottom: 1px solid black;
       text-align: center;
+      background-color: ${accentColor}
 
     }
     .combosCard {
       border: 1px solid black;
       width: 40vw;
-      margin-left: -2vw
+
+      background-color: white;
 
     }
     .comboRow {
