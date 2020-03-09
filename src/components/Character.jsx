@@ -2,6 +2,91 @@ import React from 'react';
 
 
 function Character(props) {
+  let accentColor = 'rgba(0, 0, 0,0)'
+  if (props.character.character.bio.name === 'Android 21') {
+    accentColor = 'rgba(224, 87, 255,.3)'
+  }else if (props.character.character.bio.name === 'Android 16') {
+    accentColor = 'rgba(0, 255, 94,.3)'
+  }else if (props.character.character.bio.name === 'Android 17') {
+    accentColor = 'rgba(0, 234, 255,.3)'
+  }else if (props.character.character.bio.name === 'Android 18') {
+    accentColor = 'rgba(59, 108, 255,.5)'
+  }else if (props.character.character.bio.name === 'Bardock') {
+    accentColor = 'rgba(0, 145, 126,.5)'
+  }else if (props.character.character.bio.name === 'Beerus') {
+    accentColor = 'rgba(160, 97, 255,.5)'
+  }else if (props.character.character.bio.name === 'DBS Broly') {
+    accentColor = 'rgba(59, 255, 85,.5)'
+  }else if (props.character.character.bio.name === 'DBZ Broly') {
+    accentColor = 'rgba(59, 255, 137,.4)'
+  }else if (props.character.character.bio.name === 'Captain Ginyu') {
+    accentColor = 'rgba(255, 59, 235,.3)'
+  }else if (props.character.character.bio.name === 'Cell') {
+    accentColor = 'rgba(59, 255, 147,.5)'
+  }else if (props.character.character.bio.name === 'Cooler') {
+    accentColor = 'rgba(104, 48, 255,.3)'
+  }else if (props.character.character.bio.name === 'Frieza') {
+    accentColor = 'rgba(160, 97, 255,.6)'
+  }else if (props.character.character.bio.name === 'Gogeta') {
+    accentColor = 'rgba(0, 81, 255,.5)'
+  }else if (props.character.character.bio.name === 'Adult Gohan') {
+    accentColor = 'rgba(43, 139, 255,.5)'
+  }else if (props.character.character.bio.name === 'Teen Gohan') {
+    accentColor = 'rgba(255, 38, 125,.3)'
+  }else if (props.character.character.bio.name === 'Goku') {
+    accentColor = 'rgba(255, 38, 125,.3)'
+  }else if (props.character.character.bio.name === 'Super Saiyan Goku') {
+    accentColor = 'rgba(255, 38, 175,.2)'
+  }else if (props.character.character.bio.name === 'Super Saiyan Blue Goku') {
+    accentColor = 'rgba(0, 213, 255,.5)'
+  }else if (props.character.character.bio.name === 'GT Goku') {
+    accentColor = 'rgba(0, 47, 255,.5)'
+  }else if (props.character.character.bio.name === 'Super Saiyan Rosé Goku Black') {
+    accentColor = 'rgba(25, 0, 255,.4)'
+  }else if (props.character.character.bio.name === 'Gotenks') {
+    accentColor = 'rgba(48, 105, 240,.5)'
+  }else if (props.character.character.bio.name === 'Hit') {
+    accentColor = 'rgba(48, 240, 211,.6)'
+  }else if (props.character.character.bio.name === 'Janemba') {
+    accentColor = 'rgba(90, 48, 240,.3)'
+  }else if (props.character.character.bio.name === 'Jiren') {
+    accentColor = 'rgba(242, 5, 5,.6)'
+  }else if (props.character.character.bio.name === 'Kid Buu') {
+    accentColor = 'rgba(166, 0, 212,.3)'
+  }else if (props.character.character.bio.name === 'Kefla') {
+    accentColor = 'rgba(250, 47, 47,.6)'
+  }else if (props.character.character.bio.name === 'Krillin') {
+    accentColor = 'rgba(252, 233, 83,.3)'
+  }else if (props.character.character.bio.name === 'Majin Buu') {
+    accentColor = 'rgba(166, 0, 212,.3)'
+  }else if (props.character.character.bio.name === 'Nappa') {
+    accentColor = 'rgba(217, 200, 72,.3)'
+  }else if (props.character.character.bio.name === 'Piccolo') {
+    accentColor = 'rgba(0, 38, 255,.4)'
+  }else if (props.character.character.bio.name === 'Tien Shinhan') {
+    accentColor = 'rgba(252, 233, 83,.3)'
+  }else if (props.character.character.bio.name === 'Trunks') {
+    accentColor = 'rgba(43, 139, 255,.5)'
+  }else if (props.character.character.bio.name === 'Vegeta') {
+    accentColor = 'rgba(3, 117, 255,.5)'
+  }else if (props.character.character.bio.name === 'Super Saiyan Vegeta') {
+    accentColor = 'rgba(3, 184, 255,.6)'
+  }else if (props.character.character.bio.name === 'Super Saiyan Blue Vegeta') {
+    accentColor = 'rgba(0, 213, 255,.5)'
+  }else if (props.character.character.bio.name === 'Vegito') {
+    accentColor = 'rgba(0, 170, 255,.6)'
+  }else if (props.character.character.bio.name === 'Videl') {
+    accentColor = 'rgba(72, 0, 255,.3)'
+  }else if (props.character.character.bio.name === 'Yamcha') {
+    accentColor = 'rgba(252, 233, 83,.3)'
+  }else if (props.character.character.bio.name === 'Zamasu') {
+    accentColor = 'rgba(166, 128, 255,.6)'
+  }
+
+
+
+
+
   console.log(props);
   return (
     <div>
@@ -33,6 +118,7 @@ function Character(props) {
         display: flex;
         justify-content: space-evenly;
         border-bottom: 1px solid blue;
+        background-color: white;
       }
       .movesCard {
         width: 33vw;
@@ -58,6 +144,9 @@ function Character(props) {
         border-bottom: 1px solid black;
 
 
+      }
+      .movesData {
+        background-color: ${accentColor}
       }
       `}</style>
     </div>
@@ -113,11 +202,14 @@ function Character(props) {
             max-width: 1228px;
           height: 100vh;
           width: 25vw;
-          border:1px solid blue;
           }
           .leftPanel {
             max-width: 1228px;
             height: 100vh;
+          }
+          .assistRow {
+            background-color: ${accentColor}
+
           }
 
           `}</style>
@@ -161,18 +253,18 @@ function Character(props) {
         `}
 
   </style>
-  <h1 className="title">Combos</h1>
+  <h1 className="title">BnB's</h1>
   <div className="combosCard">
     <div className='comboNotation'>
       {props.character.character.combos.map((combo)=>
-        <div>
+        <div className='comboEntry'>
         <div className="comboRow">
           <div className="comboHeader">
           <h2> {combo['position']}</h2>
         </div>
           <h2 className='notation'> {combo['notation']}</h2>
           <div >
-            <iframe className='video' src={combo['video']} ></iframe>
+            <iframe className='video' src={combo['video']} frameborder="0"></iframe>
           </div>
         </div>
         </div>
@@ -183,7 +275,9 @@ function Character(props) {
     .video{
       height: 40vh;
       width: 40vw;
-      border: 2px solid green
+    }
+    .comboEntry{
+      margin-bottom: 1vh;
     }
     .notation {
       padding: 1%;
@@ -195,13 +289,14 @@ function Character(props) {
       margin-left: 2vw;
     }
     .comboHeader {
-      border: 1px solid black;
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
       text-align: center;
     }
     .combosCard {
       border: 1px solid black;
       width: 40vw;
-      margin-left: -1vw;
+      margin-left: -2vw
 
     }
     .comboRow {
