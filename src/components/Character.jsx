@@ -84,17 +84,37 @@ function Character(props) {
   }
 
 
-
+const component = {
+  backgroundColor: `${accentColor}`,
+  height: '100%',
+  width: '100%',
+}
 
 
   console.log(props);
   return (
-    <div>
-      <h1> {props.character.character.bio.name}</h1>
-      <div className='characterComponent'>
-        <div className='leftPanel'>
-        <img className="characterImg"src={props.character.character.bio.pictures[3]}/>
+    <div >
+      <div className='charProfile'>
+        <h1 className="charName"> {props.character.character.bio.name}</h1>
+        <img className="charImg"src={props.character.character.bio.pictures[3]}/>
       </div>
+      <style jsx>{`
+          .charProfile{
+
+          }
+          .charName {
+            font-size: 800%;
+            color: white;
+            font-family: 'Neuton', serif;
+            text-shadow: 3px 3px black
+          }
+          .charImg {
+            float: right;
+            margin-top: -20vh;
+          }
+            `}
+      </style>
+      <div className='characterComponent'>
         <div className='midPanel'>
           <h1 className="title">Moves</h1>
       <div className="movesCard">
@@ -118,13 +138,16 @@ function Character(props) {
         display: flex;
         justify-content: space-evenly;
         border-bottom: 1px solid blue;
-        background-color: white;
+        background-color: #cc4c29;
+        // border-top-left-radius: 60px;
+        // border-top-right-radius: 60px
       }
       .movesCard {
         width: 33vw;
         border: 1px solid black;
-        border-radius: 60px;
+        // border-radius: 60px;
       }
+
       .moveRow {
         width: 30%;
 
@@ -146,7 +169,8 @@ function Character(props) {
 
       }
       .movesData {
-        background-color: ${accentColor}
+        background-color: ${accentColor};
+
       }
       `}</style>
     </div>
@@ -172,7 +196,7 @@ function Character(props) {
           .assistHeader {
             display: flex;
             justify-content: space-evenly;
-            background-color: white;
+            background-color: #cc4c29;
           }
         .row {
           width: 33%;
@@ -197,11 +221,6 @@ function Character(props) {
             flex-flow: column wrap;
             justify-content: space-between;
             height: 100vh
-          }
-          .characterImg {
-            max-width: 1228px;
-          height: 100vh;
-          width: 25vw;
           }
           .leftPanel {
             max-width: 1228px;
@@ -236,7 +255,7 @@ function Character(props) {
       .supersHeader {
         display: flex;
         justify-content: space-evenly;
-        background-color: white;
+        background-color: #cc4c29;
       }
       .supersRow {
           display: flex;
@@ -248,8 +267,8 @@ function Character(props) {
           width: 30vw;
           border: 1px solid black;
           margin-right: 5%;
-
         }
+
         `}
 
   </style>
