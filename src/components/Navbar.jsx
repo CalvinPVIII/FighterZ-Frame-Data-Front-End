@@ -10,6 +10,10 @@ function Navbar() {
       </div>
       <div className="outerRectangle">
       </div>
+      <div className="innerRectangleWrap">
+      </div>
+      <div className="innerRectangle">
+      </div>
       <div className="innerHeader">
         <p>Tier List</p>
         <p>Characters</p>
@@ -25,6 +29,22 @@ function Navbar() {
             width: 101%;
             margin-left: -.5vw;
           }
+          .innerRectangle{
+            width: 119px;
+            height: 15px;
+            transform: skew(-30deg);
+            margin-top: -2.8vh;
+            margin-left: -1vw;
+            background-color: black;
+            border-top: 1px solid black;
+          }
+          .innerRectangleWrap{
+            width: 96px;
+            height: 10px;
+            transform: skew(-20deg);
+            margin-top: -1.7vh;
+            border-bottom: 1px solid black;
+          }
           .outerRectangleWrap{
             width: 100px;
             height: 30px;
@@ -38,8 +58,8 @@ function Navbar() {
             transform: skew(-20deg);
             background:#FF6F17;
             margin-top: -2.5vh;
-
-            border-right: 1px solid black
+            border-right: 2px solid black;
+            border-bottom: 2px solid black;
           }
           .topBar{
             width: 90vw;
@@ -47,7 +67,7 @@ function Navbar() {
             background-color: #FF6F17;
             margin-right: auto;
             margin-left: auto;
-            border-bottom: 3px solid black;
+            border-bottom: 2px solid black;
           }
           .bottomBar{
             width: 90vw;
@@ -55,7 +75,7 @@ function Navbar() {
             background-color: #FF6F17;
             margin-right: auto;
             margin-left: auto;
-            border-top: 3px solid black;
+            border-top: 2px solid black;
           }
 
           .innerHeader{
@@ -63,6 +83,7 @@ function Navbar() {
             flex-flow: row-wrap;
             justify-content: space-between;
           }
+
 
           `}</style>
       </div>
