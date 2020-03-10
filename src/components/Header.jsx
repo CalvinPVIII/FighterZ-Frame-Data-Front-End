@@ -5,6 +5,12 @@ function Header() {
   return (
     <div className='header'>
     <img src={logo}/>
+    <style jsx>{`
+        .header {
+          display: flex;
+          justify-content: center;
+        }
+          `}</style>
 
   </div>
   );

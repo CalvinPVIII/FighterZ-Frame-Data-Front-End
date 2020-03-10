@@ -2,7 +2,8 @@ import React from 'react';
 
 
 function Character(props) {
-  let accentColor = 'rgba(0, 0, 0,0)'
+  let accentColor = 'rgba(0, 0, 0,0)';
+
   if (props.character.character.bio.name === 'Android 21') {
     accentColor = '#A63AB0'
   }else if (props.character.character.bio.name === 'Android 16') {
@@ -99,8 +100,8 @@ const component = {
         <img className="charImg"src={props.character.character.bio.pictures[3]}/>
       </div>
       <style jsx>{`
-          .charProfile{
-
+          body{
+            background-color:
           }
           .charName {
             font-size: 800%;
@@ -111,6 +112,7 @@ const component = {
           .charImg {
             float: right;
             margin-top: -20vh;
+
           }
             `}
       </style>
@@ -124,8 +126,9 @@ const component = {
           <h1> Advantage</h1>
         </div>
         <div className="movesData">
-          {props.character.character.moves.map((move)=>
+          {props.character.character.moves.map((move, index=0)=>
             <div className="tableRow">
+              {index +=1}
               <h2 className="moveRow"> {move['MOVE']}</h2>
               <h2 className="startupRow"> {move['FIRST ACTIVE']}</h2>
               <h2 className="advantageRow"> {move['ADVANTAGE']}</h2>
@@ -145,6 +148,7 @@ const component = {
         width: 33vw;
         border: 1px solid black;
         background-color: white;
+        box-shadow: 10px 10px;
       }
 
       .moveRow {
@@ -216,6 +220,7 @@ const component = {
             border: 1px solid black;
             margin-right: 5%;
             background-color: white;
+            box-shadow: 10px 10px;
           }
           .characterComponent {
             display: flex;
@@ -270,6 +275,7 @@ const component = {
           border: 1px solid black;
           margin-right: 5%;
           background-color: white;
+          box-shadow: 10px 10px;
         }
 
         `}
@@ -320,7 +326,7 @@ const component = {
     .combosCard {
       border: 1px solid black;
       width: 40vw;
-
+box-shadow: 10px 10px;
       background-color: white;
 
     }
