@@ -8,6 +8,7 @@ const characterList={
 }
   return (
     <div className="characterListWrap">
+      <img className="backgroundImg" src='https://cdn.pixabay.com/photo/2013/07/13/11/47/curly-158671_960_720.png'/>
       <Header/>
       <Navbar/>
       <div style={characterList}>
@@ -16,24 +17,17 @@ const characterList={
       )}
       </div>
       <style jsx>{`
-          .characterListWrap:before{
-            content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    // top: -50%;
-    // left: -50%;
-    z-index: -1;
-
-    -webkit-transform: rotate(160deg);
-    -moz-transform: rotate(160deg);
-    -ms-transform: rotate(160deg);
-    -o-transform: rotate(160deg);
-    transform: rotate(160deg);
-            background-image: url('https://cdn.pixabay.com/photo/2013/07/13/11/47/curly-158671_960_720.png');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
+          .backgroundImg{
+            opacity: 0.6;
+            position: absolute;
+            z-index: -1;
+            width: 80%;
+            height: 70%;
+             transform: scaleX(-1);
+             transform: rotate(180deg);
+             display: block;
+             margin-left: 20vw;;
+             margin-right: auto;
 
           }
             `}</style>
