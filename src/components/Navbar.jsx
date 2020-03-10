@@ -4,20 +4,18 @@ import React from 'react';
 function Navbar() {
   return (
     <div className="headerWrap">
-      <div className="topLeftRectangle">
-        <div className="innerTopLeft">
-          <div className="rightSideBorder">
-          <div className="topLeftBlackRectangle">
-          </div>
-        </div>
-        </div>
+      <div className="topBar">
       </div>
-      <div className="outerHeader">
-        <div className="innerHeader">
-          <p>Tier List</p>
-          <p>Characters</p>
-          <p>Info</p>
-        </div>
+      <div className="outerRectangleWrap">
+      </div>
+      <div className="outerRectangle">
+      </div>
+      <div className="innerHeader">
+        <p>Tier List</p>
+        <p>Characters</p>
+        <p>Info</p>
+      </div>
+      <div className="bottomBar">
       </div>
       <style jsx>{`
           .headerWrap{
@@ -27,49 +25,43 @@ function Navbar() {
             width: 101%;
             margin-left: -.5vw;
           }
-          .topLeftRectangle{
-            width: 120px;
-            height: 15px;
+          .outerRectangleWrap{
+            width: 100px;
+            height: 30px;
             transform: skew(-20deg);
-            background-color: #FF6F17;
-            margin-bottom: -2vh;
-            border-bottom: 2px solid black;
-            border-right: 2px solid black;
-            margin-left: -1vw;
+            background:#FF6F17;
+            margin-top: -.8vh;
           }
-          .rightSideBorder{
-            width: 125px;
-            height: 4px;
-            background-color: #FF6F17;
-            margin-bottom: 6vh;
-
-          }
-          .topLeftBlackRectangle{
-            width: 115px;
-            height: 12px;
-            background-color: black;
+          .outerRectangle{
+            width: 99px;
+            height: 25px;
             transform: skew(-20deg);
-          }
-          .innerTopLeft{
-            border-bottom: 1px solid black;
-            // border-right: 1px solid black;
-            width: 115px;
-            height: 13px;
-            margin-bottom: -100px;
-            // background-color: black;
+            background:#FF6F17;
+            margin-top: -2.5vh;
 
+            border-right: 1px solid black
           }
-          .outerHeader{
+          .topBar{
+            width: 90vw;
+            height: 5px;
+            background-color: #FF6F17;
+            margin-right: auto;
+            margin-left: auto;
+            border-bottom: 3px solid black;
+          }
+          .bottomBar{
+            width: 90vw;
+            height: 5px;
+            background-color: #FF6F17;
+            margin-right: auto;
+            margin-left: auto;
+            border-top: 3px solid black;
+          }
 
-            border-top: 5px solid #FF6F17;
-            border-bottom: 5px solid #FF6F17;
-          }
           .innerHeader{
             display:flex;
             flex-flow: row-wrap;
             justify-content: space-between;
-            border-top: 1px solid black;
-            border-bottom: 1px solid black;
           }
 
           `}</style>
