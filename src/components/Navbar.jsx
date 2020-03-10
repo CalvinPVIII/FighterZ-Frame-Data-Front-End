@@ -9,11 +9,20 @@ function Navbar() {
       <div className="topLeftRectangle">
       <NavbarRectangles/>
     </div>
+    <div className="topRightRectangle">
+      <NavbarRectangles/>
+    </div>
 
       <div className="innerHeader">
-        <p>Tier List</p>
-        <p>Characters</p>
-        <p>Info</p>
+        <p className="navbarLink">Tier List</p>
+        <p className="navbarLink">Characters</p>
+        <p className="navbarLink">Info</p>
+      </div>
+      <div className="bottomLeftRectangle">
+        <NavbarRectangles/>
+      </div>
+      <div className="bottomRightRectangle">
+        <NavbarRectangles/>
       </div>
       <div className="bottomBar">
       </div>
@@ -25,8 +34,23 @@ function Navbar() {
             width: 101%;
             margin-left: -.5vw;
           }
+          .bottomLeftRectangle{
+            transform: scaleY(-1);
+            margin-bottom: -0.5vh;
+          }
+          .bottomRightRectangle{
+            float: right;
+            transform: scale(-1,-1);
+            margin-top: -1vh;
+          }
           .topLeftRectangle{
             margin-top: -0.2vw;
+          }
+          .topRightRectangle{
+            transform: scaleX(-1);
+            margin-top: -0.8vw;
+            float: right;
+            margin-left: -0.5vw;
           }
           .topBar{
             width: 100vw;
@@ -49,6 +73,11 @@ function Navbar() {
             display:flex;
             flex-flow: row-wrap;
             justify-content: space-around;
+          }
+          .navbarLink{
+            font-size: 1.2vw;
+            color: white;
+            text-shadow: 2px 2px black;
           }
 
 
