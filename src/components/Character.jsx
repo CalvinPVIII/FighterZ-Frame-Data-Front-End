@@ -85,17 +85,11 @@ function Character(props) {
   }
 
 
-const component = {
-  backgroundColor: `${accentColor}`,
-  height: '100%',
-  width: '100%',
-}
-
 
   console.log(props);
   return (
     <div >
-      <Navbar/>
+    
       <div className='charProfile'>
         <h1 className="charName"> {props.character.character.bio.name}</h1>
         <img className="charImg"src={props.character.character.bio.pictures[3]}/>
