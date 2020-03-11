@@ -8,7 +8,7 @@ const characterList={
 }
   return (
     <div className="characterListWrap">
-      <img className="backgroundImg" src='https://cdn.pixabay.com/photo/2013/07/13/11/47/curly-158671_960_720.png'/>
+      <img className="backgroundImg" src='https://www.onlygfx.com/wp-content/uploads/2018/03/grunge-spiral-8.png'/>
       <Header/>
       <Navbar/>
       <div style={characterList}>
@@ -21,13 +21,13 @@ const characterList={
             opacity: 0.6;
             position: absolute;
             z-index: -1;
-            width: 80%;
+            width: 90%;
             height: 70%;
-             transform: scaleX(-1);
-             transform: rotate(180deg);
+             transform: rotate(1deg);
              display: block;
-             margin-left: 20vw;;
+             margin-left: 9vw;;
              margin-right: auto;
+             margin-top: -5vh;
           }
           .characterImg:hover{
             width: 10%;

@@ -29,6 +29,7 @@ function Navbar() {
       <style jsx>{`
           .headerWrap{
             background-color: #FF9A23;
+            background-image: url("https://www.transparenttextures.com/patterns/lined-paper.png");
             border-top: 1px solid black;
             border-bottom: 1px solid black;
             width: 101%;
