@@ -89,7 +89,7 @@ function Character(props) {
   console.log(props);
   return (
     <div >
-    
+
       <div className='charProfile'>
         <h1 className="charName"> {props.character.character.bio.name}</h1>
         <img className="charImg"src={props.character.character.bio.pictures[3]}/>
@@ -124,7 +124,7 @@ function Character(props) {
         <div className="movesData">
           {props.character.character.moves.map((move, index=0)=>
             <div className="tableRow">
-              {index +=1}
+
               <h2 className="moveRow"> {move['MOVE']}</h2>
               <h2 className="startupRow"> {move['FIRST ACTIVE']}</h2>
               <h2 className="advantageRow"> {move['ADVANTAGE']}</h2>
