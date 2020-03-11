@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Navbar from "./Navbar"
 
 function Character(props) {
   let accentColor = 'rgba(0, 0, 0,0)';
@@ -95,6 +95,7 @@ const component = {
   console.log(props);
   return (
     <div >
+      <Navbar/>
       <div className='charProfile'>
         <h1 className="charName"> {props.character.character.bio.name}</h1>
         <img className="charImg"src={props.character.character.bio.pictures[3]}/>

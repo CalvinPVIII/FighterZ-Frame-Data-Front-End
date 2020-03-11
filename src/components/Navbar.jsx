@@ -79,6 +79,7 @@ function Navbar() {
             font-size: 1.2vw;
             color: white;
             text-shadow: 2px 2px black;
+            margin: 0.3vh;
           }
 
 
