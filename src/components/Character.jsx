@@ -124,6 +124,7 @@ const component = {
           <h1> Move</h1>
           <h1> Startup</h1>
           <h1> Advantage</h1>
+          <h1> Guard</h1>
         </div>
         <div className="movesData">
           {props.character.character.moves.map((move, index=0)=>
@@ -132,6 +133,7 @@ const component = {
               <h2 className="moveRow"> {move['MOVE']}</h2>
               <h2 className="startupRow"> {move['FIRST ACTIVE']}</h2>
               <h2 className="advantageRow"> {move['ADVANTAGE']}</h2>
+              <h2 className="typeRow"> {move['GUARD']}</h2>
             </div>
             )}
   </div>
@@ -152,16 +154,19 @@ const component = {
       }
 
       .moveRow {
-        width: 30%;
+        width: 25%;
 
       }
       .startupRow {
-        width: 30%;
+        width: 25%;
 
       }
       .advantageRow {
-        width: 30%;
+        width: 25%;
 
+      }
+      .typeRow {
+        padding-left: .5vw;
       }
       .tableRow {
         display: flex;
