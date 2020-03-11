@@ -337,17 +337,16 @@ function Character(props) {
       background-color: white;
       margin-bottom: 2vh;
     }
-    .videoTransitionOpen {
+    .videoTransitionOpen{
       width: 40vw;
       height: 40vh;
-      opacity: 0;
-      animation: fade-in 1s,
+      animation: transition-open 2s 1;
     }
 
-    @keyframes fade-in {
-        0% { opacity: 0 }
-        100% { opacity: 1}
-      }
+    @keyframes transition-open {
+      0% { width: 0vw; height: 0vh; }
+      100% { width: 40vw; height 0vh; }
+    }
     .comboRow {
       text-align: center
     }
