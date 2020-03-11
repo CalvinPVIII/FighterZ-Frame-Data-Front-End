@@ -282,9 +282,9 @@ function Character(props) {
 
   </style>
   <h1 className="title">BnB's</h1>
-  <div className="combosCard">
-    <div className='comboNotation'>
       {props.character.character.combos.map((combo)=>
+        <div className="combosCard">
+          <div className='comboNotation'>
         <div className='comboEntry'>
         <div className="comboRow">
           <div className="comboHeader">
@@ -296,16 +296,17 @@ function Character(props) {
           </div>
         </div>
         </div>
-      )}
+      </div>
     </div>
-  </div>
+      )}
   <style jsx>{`
     .video{
       height: 40vh;
       width: 40vw;
     }
     .comboEntry{
-      margin-bottom: 1vh;
+      margin-bottom: 3vh;
+
     }
     .notation {
       padding: 1%;
@@ -326,8 +327,10 @@ function Character(props) {
     .combosCard {
       border: 1px solid black;
       width: 40vw;
-box-shadow: 10px 10px;
+      box-shadow: 10px 10px;
       background-color: white;
+      margin-bottom: 2vh;
+
 
     }
     .comboRow {
