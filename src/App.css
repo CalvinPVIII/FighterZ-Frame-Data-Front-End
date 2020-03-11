@@ -2,9 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Neuton:wght@700&display=swap');
 body {
-  background-color: #db6b2e;
+  background-color:#de9031;
+background-image: url("https://www.transparenttextures.com/patterns/grid-me.png");
 
   font-family: 'Open Sans', sans-serif;
   /* #cc4c29 */
+  /* #db6b2e; */
   /* #db8d2e */
 }

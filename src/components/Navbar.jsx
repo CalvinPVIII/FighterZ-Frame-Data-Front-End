@@ -50,7 +50,7 @@ function Navbar() {
             transform: scaleX(-1);
             margin-top: -0.8vw;
             float: right;
-            margin-left: -0.5vw;
+            // margin-left: -0.5vw;
           }
           .topBar{
             width: 100vw;

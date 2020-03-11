@@ -13,7 +13,7 @@ const characterList={
       <Navbar/>
       <div style={characterList}>
       {props.characterList.map((character)=>
-        <Link to={'/character'} onClick={()=>{props.onCharacterSelect(character.id)}}>   <img src={character.character.bio.pictures[0]}/> </Link>
+        <Link to={'/character'} onClick={()=>{props.onCharacterSelect(character.id)}}>   <img className="characterImg" src={character.character.bio.pictures[0]}/> </Link>
       )}
       </div>
       <style jsx>{`
@@ -28,6 +28,9 @@ const characterList={
              display: block;
              margin-left: 20vw;;
              margin-right: auto;
+          }
+          .characterImg:hover{
+            width: 10%;
 
           }
             `}</style>
