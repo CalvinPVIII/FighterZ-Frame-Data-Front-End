@@ -1,6 +1,6 @@
 import React from 'react';
-import Navbar from "./Navbar"
-
+import nimbus from "../images/nimbus.gif"
+import {Link} from 'react-router-dom'
 function Character(props) {
   let accentColor = 'rgba(0, 0, 0,0)';
 
@@ -102,7 +102,7 @@ function Character(props) {
             font-size: 800%;
             color: white;
             font-family: 'Neuton', serif;
-            text-shadow: 3px 3px ${accentColor}
+            text-shadow: 3px 3px black
           }
           .charImg {
             float: right;
@@ -342,7 +342,40 @@ box-shadow: 10px 10px;
     }
     `}</style>
   </div>
+  <div className="homeButton">
+    <Link to='/'> <img src={nimbus} className="homeImg"/><p className='homeText'>Home</p></Link>
+  </div>
+  <style jsx>{`
+      .homeButton{
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+      }
+      .homeImg{
+        bottom: 0;
+        right: 0;
+        height: 14vh;
+        width: 7vw;
+        position: fixed;
+        z-index: -1;
+      }
+      .homeText, .homeText:visited{
+        color: white;
+
+        text-shadow: 2px 2px black;
+        position: relative;
+        z-index: 1;
+        margin-right: 2vw;
+        font-size: 3vh;
+      }
+      a{
+        text-decoration: none;
+      }
+      `}</style>
 </div>
+
     </div>
   );
 }
