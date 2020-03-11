@@ -4,8 +4,13 @@ import {Link} from 'react-router-dom'
 function Character(props) {
   function onVideoClick(index){
     let video = document.getElementById(index)
-    console.log(video);
-    video.classList.add('videoTransitionOpen')
+    // console.log(video.classList.value.split(' '));
+if (!video.classList.value.split(' ').includes('videoTransitionOpen')) {
+  video.classList.add('videoTransitionOpen')
+}else {
+  video.classList.remove('videoTransitionOpen');
+  video.classList.add('videoTransitionClose')
+}
   }
 
   let accentColor = 'rgba(0, 0, 0,0)';
@@ -311,8 +316,7 @@ function Character(props) {
       width: 0vw;
     }
     .comboEntry{
-      margin-bottom: 3vh;
-
+      margin-bottom: 3vh
     }
     .notation {
       padding: 1%;
@@ -342,11 +346,22 @@ function Character(props) {
       height: 40vh;
       animation: transition-open 2s 1;
     }
+    .videoTransitionClose {
+      width: 0vw;
+      height: 0vh;
+      animation: transition-close 2s 1;
+    }
 
     @keyframes transition-open {
       0% { width: 0vw; height: 0vh; }
-      100% { width: 40vw; height 0vh; }
+      100% { width: 40vw; height 40vh; }
     }
+
+    @keyframes transition-close {
+      0% { width: 40vw; height: 40vh; }
+      100% { width: 00vw; height 0vh; }
+    }
+
     .comboRow {
       text-align: center
     }
