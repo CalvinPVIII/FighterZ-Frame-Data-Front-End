@@ -2,6 +2,12 @@ import React from 'react';
 import nimbus from "../images/nimbus.gif"
 import {Link} from 'react-router-dom'
 function Character(props) {
+  function onVideoClick(index){
+    let video = document.getElementById(index)
+    console.log(video);
+    video.classList.add('videoTransitionOpen')
+  }
+
   let accentColor = 'rgba(0, 0, 0,0)';
 
   if (props.character.character.bio.name === 'Android 21') {
@@ -282,8 +288,8 @@ function Character(props) {
 
   </style>
   <h1 className="title">BnB's</h1>
-      {props.character.character.combos.map((combo)=>
-        <div className="combosCard">
+      {props.character.character.combos.map((combo, index)=>
+        <div className="combosCard" onClick={()=>onVideoClick(index)}>
           <div className='comboNotation'>
         <div className='comboEntry'>
         <div className="comboRow">
@@ -292,7 +298,7 @@ function Character(props) {
         </div>
           <h2 className='notation'> {combo['notation']}</h2>
           <div >
-            <iframe className='video' src={combo['video']} frameborder="0"></iframe>
+            <iframe className='video' src={combo['video']} frameborder="0" id={index}></iframe>
           </div>
         </div>
         </div>
@@ -301,8 +307,8 @@ function Character(props) {
       )}
   <style jsx>{`
     .video{
-      height: 40vh;
-      width: 40vw;
+      height: 0vh;
+      width: 0vw;
     }
     .comboEntry{
       margin-bottom: 3vh;
@@ -330,9 +336,18 @@ function Character(props) {
       box-shadow: 10px 10px;
       background-color: white;
       margin-bottom: 2vh;
-
-
     }
+    .videoTransitionOpen {
+      width: 40vw;
+      height: 40vh;
+      opacity: 0;
+      animation: fade-in 1s,
+    }
+
+    @keyframes fade-in {
+        0% { opacity: 0 }
+        100% { opacity: 1}
+      }
     .comboRow {
       text-align: center
     }
