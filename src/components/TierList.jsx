@@ -35,36 +35,64 @@ class TierList extends React.Component {
     )
   }
 
-render () {
-// console.log(this.state.tierList[0]);
-  return (
-    <div >
-      <img className="backgroundImg" src='https://www.onlygfx.com/wp-content/uploads/2018/03/grunge-spiral-8.png'/>
-      <Header/>
-      <Navbar/>
-<h1>S tier:</h1>
+  render () {
 
-      <style jsx>{`
-          .backgroundImg{
-            opacity: 0.6;
-            position: absolute;
-            z-index: -1;
-            width: 90%;
-            height: 70%;
-            transform: rotate(1deg);
-            display: block;
-            margin-left: 9vw;;
-            margin-right: auto;
-            margin-top: -5vh;
+    const { error, isLoaded, items } = this.state;
+    if (error) {
+      return <div>Error: {error.message}</div>;
+      } else if (!isLoaded) {
+        return <div>Loading...</div>;
+        } else {
+          return (
+            <div >
+              <img className="backgroundImg" src='https://www.onlygfx.com/wp-content/uploads/2018/03/grunge-spiral-8.png'/>
+              <Header/>
+              <Navbar/>
+              <div className='sTier'>
+              <h1>S tier:</h1>
+                {this.state.tierList[0].tiers.s.map((character)=>
+                  <Link to={'/character'} onClick={()=>{this.props.onCharacterSelect(character.id)}}>   <img className="characterImg" src={character.character.bio.pictures[0]}/> </Link>
+                )}
+              </div>
+              <div className='aTier'>
+              <h1>A tier:</h1>
+                {this.state.tierList[0].tiers.a.map((character)=>
+                  <Link to={'/character'} onClick={()=>{this.props.onCharacterSelect(character.id)}}>   <img className="characterImg" src={character.character.bio.pictures[0]}/> </Link>
+                )}
+              </div>
+              <div className='bTier'>
+              <h1>B tier:</h1>
+                {this.state.tierList[0].tiers.b.map((character)=>
+                  <Link to={'/character'} onClick={()=>{this.props.onCharacterSelect(character.id)}}>   <img className="characterImg" src={character.character.bio.pictures[0]}/> </Link>
+                )}
+              </div>
+              <div className='cTier'>
+              <h1>c tier:</h1>
+                {this.state.tierList[0].tiers.c.map((character)=>
+                  <Link to={'/character'} onClick={()=>{this.props.onCharacterSelect(character.id)}}>   <img className="characterImg" src={character.character.bio.pictures[0]}/> </Link>
+                )}
+              </div>
+              <style jsx>{`
+                  .backgroundImg{
+                    opacity: 0.6;
+                    position: absolute;
+                    z-index: -1;
+                    width: 90%;
+                    height: 70%;
+                    transform: rotate(1deg);
+                    display: block;
+                    margin-left: 9vw;;
+                    margin-right: auto;
+                    margin-top: -5vh;
+                  }
+                  .characterImg:hover{
+                    width: 10%;
+
+                  }
+                  `}</style>
+              </div>
+            );
           }
-          .characterImg:hover{
-            width: 10%;
-
-          }
-          `}</style>
-      </div>
-    );
-  }
-}
-
-  export default TierList;
+        }
+      }
+      export default TierList;

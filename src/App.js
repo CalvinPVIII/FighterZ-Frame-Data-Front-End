@@ -51,9 +51,7 @@ handleSelectingCharacter(id){
   })
 this.setState({selectedCharacter: newCharacter});
 }
-
 render(){
-console.log(this.state.characterList);
   const { error, isLoaded, items } = this.state;
   if (error) {
     return <div>Error: {error.message}</div>;
@@ -65,7 +63,7 @@ console.log(this.state.characterList);
             <Switch>
               <Route exact path='/' render={()=><CharacterList characterList={this.state.characterList} onCharacterSelect={this.handleSelectingCharacter} />} />
               <Route path='/character' render={()=><Character character={this.state.selectedCharacter} />} />
-              <Route patch="/tierlist" render={()=><TierList onCharacterSelect={this.handleSelectingCharacter} />} />
+              <Route patch="/tierlist" render={()=><TierList onCharacterSelect={this.handleSelectingCharacter} characterList={this.state.characterList} />} />
             </Switch>
           </div>
         );
