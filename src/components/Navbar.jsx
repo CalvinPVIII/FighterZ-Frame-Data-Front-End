@@ -1,6 +1,6 @@
 import React from 'react';
 import NavbarRectangles from './NavbarRectangles'
-
+import { Link } from "react-router-dom"
 function Navbar() {
   return (
     <div className="headerWrap">
@@ -14,9 +14,9 @@ function Navbar() {
     </div>
 
       <div className="innerHeader">
-        <p className="navbarLink">Tier List</p>
-        <p className="navbarLink">Characters</p>
-        <p className="navbarLink">Info</p>
+        <Link to="/tierlist"><p className="navbarLink">Tier List</p></Link>
+        <Link to="/"><p className="navbarLink">Characters</p></Link>
+        <Link to="/info"><p className="navbarLink">Info</p></Link>
       </div>
       <div className="bottomLeftRectangle">
         <NavbarRectangles/>
@@ -80,6 +80,9 @@ function Navbar() {
             color: white;
             text-shadow: 2px 2px black;
             margin: 0.3vh;
+          }
+          a, a:visited {
+            text-decoration: none
           }
 
 

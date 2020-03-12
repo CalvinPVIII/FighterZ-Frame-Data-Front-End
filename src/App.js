@@ -4,7 +4,8 @@ import { Switch, Route } from 'react-router-dom';
 import Footer from './components/Footer'
 import CharacterList from './components/CharacterList'
 import Character from './components/Character'
-
+import TierList from './components/TierList'
+import Info from './components/Info'
 
 class App extends React.Component {
   constructor(props){
@@ -28,7 +29,7 @@ componentDidMount() {
       this.setState({
         isLoaded: true,
         characterList: result,
-        selectedCharacter: result[3]
+        selectedCharacter: result[0]
       });
     },
     (error) => {
@@ -40,6 +41,7 @@ componentDidMount() {
     }
   )
 }
+
 handleSelectingCharacter(id){
   let newCharacter;
   this.state.characterList.map(function(character){
@@ -51,7 +53,7 @@ this.setState({selectedCharacter: newCharacter});
 }
 
 render(){
-
+console.log(this.state.characterList);
   const { error, isLoaded, items } = this.state;
   if (error) {
     return <div>Error: {error.message}</div>;
@@ -63,6 +65,7 @@ render(){
             <Switch>
               <Route exact path='/' render={()=><CharacterList characterList={this.state.characterList} onCharacterSelect={this.handleSelectingCharacter} />} />
               <Route path='/character' render={()=><Character character={this.state.selectedCharacter} />} />
+              <Route patch="/tierlist" render={()=><TierList onCharacterSelect={this.handleSelectingCharacter} />} />
             </Switch>
           </div>
         );
