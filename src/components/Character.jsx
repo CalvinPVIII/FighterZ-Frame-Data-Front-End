@@ -1,16 +1,33 @@
-import React from 'react';
+import React, {useState} from 'react';
 import nimbus from "../images/nimbus.gif"
 import {Link} from 'react-router-dom'
 function Character(props) {
+
+
+
   function onVideoClick(index){
     let video = document.getElementById(index)
 
     if (!video.classList.value.split(' ').includes('videoTransitionOpen')) {
       video.classList.add('videoTransitionOpen')
       video.classList.remove('videoTransitionClose');
+      let textDiv = document.getElementById(index + ' div')
+      let previousText = document.getElementById(index + ' text')
+      let p = document.createElement('p');
+      p.setAttribute('id', `${index}` + ' text')
+      let newText = document.createTextNode("Click to hide")
+      p.appendChild(newText)
+      textDiv.replaceChild(p, previousText)
     }else {
       video.classList.remove('videoTransitionOpen');
       video.classList.add('videoTransitionClose')
+      let textDiv = document.getElementById(index + ' div')
+      let previousText = document.getElementById(index + ' text')
+      let p = document.createElement('p');
+      p.setAttribute('id', `${index}` + ' text')
+      let newText = document.createTextNode("Click to expand")
+      p.appendChild(newText)
+      textDiv.replaceChild(p, previousText)
     }
   }
 
@@ -304,6 +321,9 @@ function Character(props) {
                             <h2 className='notation'> {combo['notation']}</h2>
                             <div >
                               <iframe className='video' src={combo['video']} frameborder="0" id={index}></iframe>
+                              <div id={index + ' div'}>
+                                <p id={index + ' text'}>Click to expand</p>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -340,6 +360,10 @@ function Character(props) {
                         box-shadow: 10px 10px;
                         background-color: white;
                         margin-bottom: 2vh;
+                      }
+
+                      .combosCard:hover {
+                        cursor: pointer;
                       }
                       .videoTransitionOpen{
                         width: 40vw;
@@ -396,7 +420,7 @@ function Character(props) {
                       .homeText, .homeText:visited{
                         color: white;
 
-                        text-shadow: 2px 2px black;
+                        text-shadow: 3px 3px black;
                         position: relative;
                         z-index: 1;
                         margin-right: 2vw;

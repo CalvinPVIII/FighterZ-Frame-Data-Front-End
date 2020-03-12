@@ -67,7 +67,7 @@ class TierList extends React.Component {
                 )}
               </div>
               <div className='cTier'>
-              <h1>c tier:</h1>
+              <h1>C tier:</h1>
                 {this.state.tierList[0].tiers.c.map((character)=>
                   <Link to={'/character'} onClick={()=>{this.props.onCharacterSelect(character.id)}}>   <img className="characterImg" src={character.character.bio.pictures[0]}/> </Link>
                 )}
