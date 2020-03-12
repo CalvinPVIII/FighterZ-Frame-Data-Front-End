@@ -6,7 +6,8 @@ import CharacterList from './components/CharacterList'
 import Character from './components/Character'
 import TierList from './components/TierList'
 import Info from './components/Info'
-
+import Header from './components/Header'
+import Navbar from './components/Navbar'
 class App extends React.Component {
   constructor(props){
     super(props);
@@ -56,14 +57,40 @@ render(){
   if (error) {
     return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
-      return <div>Loading...</div>;
+      return(
+      <div>
+      <img className="backgroundImg" src='https://www.onlygfx.com/wp-content/uploads/2018/03/grunge-spiral-8.png'/>
+      <Header/>
+      <Navbar/>
+      <h1>Summoning Shenron</h1>
+      <style jsx>{`
+          .backgroundImg{
+            opacity: 0.6;
+            position: absolute;
+            z-index: -1;
+            width: 90%;
+            height: 70%;
+             transform: rotate(1deg);
+             display: block;
+             margin-left: 9vw;;
+             margin-right: auto;
+             margin-top: -5vh;
+          }
+          .characterImg:hover{
+            width: 10%;
+
+          }
+            `}</style>
+          </div>
+        )
       } else {
         return (
           <div >
             <Switch>
               <Route exact path='/' render={()=><CharacterList characterList={this.state.characterList} onCharacterSelect={this.handleSelectingCharacter} />} />
               <Route path='/character' render={()=><Character character={this.state.selectedCharacter} />} />
-              <Route patch="/tierlist" render={()=><TierList onCharacterSelect={this.handleSelectingCharacter} characterList={this.state.characterList} />} />
+              <Route path="/tierlist" render={()=><TierList onCharacterSelect={this.handleSelectingCharacter} characterList={this.state.characterList} />} />
+              <Route path='/info' component={Info}/>
             </Switch>
           </div>
         );
