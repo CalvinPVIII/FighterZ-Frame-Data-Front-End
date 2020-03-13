@@ -9,7 +9,7 @@ _FighterZ Frame Data is a website that provides users with the more important pa
 The frame data is being pulled from ![this spreadsheet made by Turtleon](https://docs.google.com/spreadsheets/d/1-p29UmRGIPF6n17ddOEtYfLcn_KRlE2VH6tE61P5UM8/edit#gid=1043945512). The combo videos are from YouTube user ![KuwangerLR](https://www.youtube.com/channel/UCxJK-tYPajZtdsjhgk5rIwA)_
 
 ## Components and Route Structure
-![](component tree.png)
+![](componenttree.png)
 
 ## Setup/Installation Requirements
 **For hosting the site locally, make sure the API is running on port 3001**
