@@ -5,8 +5,8 @@
 #### By _**Calvin Will**_
 
 ## Description
-_FighterZ Frame Data is a website that provides users with the more important parts of frame data for all the characters in the game Dragon Ball FighterZ. All the information is being pulled from a more comprehensive API, which can be seen ![here](https://github.com/CalvinPVIII/FighterZ-Frame-Data-API-V2).
-The frame data is being pulled from ![this spreadsheet made by Turtleon](https://docs.google.com/spreadsheets/d/1-p29UmRGIPF6n17ddOEtYfLcn_KRlE2VH6tE61P5UM8/edit#gid=1043945512). The combo videos are from YouTube user ![KuwangerLR](https://www.youtube.com/channel/UCxJK-tYPajZtdsjhgk5rIwA)_
+_FighterZ Frame Data is a website that provides users with the more important parts of frame data for all the characters in the game Dragon Ball FighterZ. All the information is being pulled from a more comprehensive API, which can be seen [here](https://github.com/CalvinPVIII/FighterZ-Frame-Data-API-V2).
+The frame data is being pulled from [this spreadsheet made by Turtleon](https://docs.google.com/spreadsheets/d/1-p29UmRGIPF6n17ddOEtYfLcn_KRlE2VH6tE61P5UM8/edit#gid=1043945512). The combo videos are from YouTube user [KuwangerLR](https://www.youtube.com/channel/UCxJK-tYPajZtdsjhgk5rIwA)_
 
 ## Components and Route Structure
 ![](componenttree.png)
