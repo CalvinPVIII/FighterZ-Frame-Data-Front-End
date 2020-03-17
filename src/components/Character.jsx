@@ -124,7 +124,7 @@ function Character(props) {
       </div>
       <style jsx>{`
           body{
-            background-color:
+            overflow: auto;
           }
           .charName {
             font-size: 800%;

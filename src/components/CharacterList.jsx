@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from './Header'
 import Navbar from "./Navbar"
+import Footer from './Footer'
 function CharacterList(props){
 const characterList={
   marginTop: '4vh',
 }
+const [characterHover, onHoverCharacter] = useState(props.characterList[0].character.bio.pictures[2])
   return (
     <div className="characterListWrap">
       <img className="backgroundImg" src='https://www.onlygfx.com/wp-content/uploads/2018/03/grunge-spiral-8.png'/>
       <Header/>
+      {/*<img className="characterHoverImage"src={characterHover}/>*/}
       <Navbar/>
       <div style={characterList}>
       {props.characterList.map((character)=>
@@ -30,10 +33,23 @@ const characterList={
              margin-top: -5vh;
           }
           .characterImg:hover{
-            width: 10%;
+            width: 9%;
 
           }
+
+          .characterImg{
+            position: absoulte;
+          }
+
+          .characterHoverImage{
+            position: fixed;;
+            margin-top: -43vh;
+          }
+
+
+
             `}</style>
+          <Footer className="footer"/>
     </div>
   );
 

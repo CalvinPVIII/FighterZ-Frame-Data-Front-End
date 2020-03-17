@@ -4,6 +4,8 @@
 body {
   background-color:#de9031;
 background-image: url("https://www.transparenttextures.com/patterns/grid-me.png");
+width: 100vw;
+overflow-x: hidden;
 
   font-family: 'Open Sans', sans-serif;
   /* #cc4c29 */

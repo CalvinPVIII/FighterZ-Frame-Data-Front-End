@@ -32,8 +32,9 @@ function Navbar() {
             background-image: url("https://www.transparenttextures.com/patterns/lined-paper.png");
             border-top: 1px solid black;
             border-bottom: 1px solid black;
-            width: 101%;
+            width: 100vw;
             margin-left: -.5vw;
+            overflow: hidden;
           }
           .bottomLeftRectangle{
             transform: scaleY(-1);
@@ -51,7 +52,7 @@ function Navbar() {
             transform: scaleX(-1);
             margin-top: -0.8vw;
             float: right;
-            // margin-left: -0.5vw;
+
           }
           .topBar{
             width: 100vw;

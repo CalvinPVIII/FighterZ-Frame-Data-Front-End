@@ -34,6 +34,8 @@ function Info() {
       <p>On Playstation 4: L equals Square, M equals Triangle, H equals Circle, and S equals Cross (or X)</p>
       <p>On Xbox One: L equals X, M equals Y, H equals B, and S equals A</p>
       <p>On Nintendo Switch: L equals Y, M equals X, H equals A, and S equals B</p>
+      <h1>How am I expected to remember all this?</h1>
+      <p>You're not. Frame data is most useful during training. As explained by a user on reddit, "People aren't doing frame maths in their head mid-match. Frame data informs your understanding of a situation in the lab; you work out your best options in a given situation, which will be based on the frame data, and then you're remembering those options and playing rock paper scissors with them, essentially."</p>
     </div>
       <style jsx>{`
           .backgroundImg{
