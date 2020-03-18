@@ -12,7 +12,6 @@ const [characterHover, onHoverCharacter] = useState(props.characterList[0].chara
     <div className="characterListWrap">
       <img className="backgroundImg" src='https://www.onlygfx.com/wp-content/uploads/2018/03/grunge-spiral-8.png'/>
       <Header/>
-      {/*<img className="characterHoverImage"src={characterHover}/>*/}
       <Navbar/>
       <div style={characterList}>
       {props.characterList.map((character)=>
@@ -28,8 +27,7 @@ const [characterHover, onHoverCharacter] = useState(props.characterList[0].chara
             height: 70%;
              transform: rotate(1deg);
              display: block;
-             margin-left: 9vw;;
-             margin-right: auto;
+             margin-left: 8vw;;
              margin-top: -5vh;
           }
           .characterImg:hover{
@@ -37,9 +35,7 @@ const [characterHover, onHoverCharacter] = useState(props.characterList[0].chara
 
           }
 
-          .characterImg{
-            position: absoulte;
-          }
+
 
           .characterHoverImage{
             position: fixed;;

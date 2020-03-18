@@ -92,7 +92,7 @@ class TierList extends React.Component {
                     margin-top: -5vh;
                   }
                   .characterImg:hover{
-                    width: 10%;
+                    width: 9%;
 
                   }
                   `}</style>
