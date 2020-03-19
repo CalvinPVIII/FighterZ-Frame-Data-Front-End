@@ -28,7 +28,7 @@ function Info() {
     <div className="notationInfo">
       <h1>How to read combo notations</h1>
       <p>Dragon Ball FighterZ uses whats referred to as 'Numpad Notation', meaning that the direction commands correlate to the keys on a numpad.</p>
-      <img class="notationImage"src={notation}/>
+      <img className="notationImage"src={notation}/>
       <h1>Attack Inputs</h1>
       <p>Dragon Ball FighterZ has four main attack buttons: ligh, medium, heavy, and special, referred to as L, M, H, and S.</p>
       <p>On Playstation 4: L equals Square, M equals Triangle, H equals Circle, and S equals Cross (or X)</p>
@@ -46,8 +46,7 @@ function Info() {
             height: 70%;
              transform: rotate(1deg);
              display: block;
-             margin-left: 9vw;;
-             margin-right: auto;
+             margin-left: 8vw;;
              margin-top: -5vh;
           }
           .characterImg:hover{

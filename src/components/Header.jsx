@@ -1,15 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import logo from '../images/dbfzlogo.png'
 
+
 function Header() {
+
+useEffect(() =>{
+  let animationStatus = sessionStorage.getItem("animationFinished")
+if ( animationStatus !== 'true') {
+  let header = document.getElementById('header')
+  setTimeout(function(){
+    sessionStorage.setItem('animationFinished', true)
+
+  },2)
+  header.style.animation = 'logoAnimation 1s'
+}
+})
+console.log(sessionStorage);
   return (
-    <div className='header'>
+    <div id="header"className='header'>
       <img src={logo}/>
       <style jsx>{`
           .header {
             display: flex;
             justify-content: center;
-            animation: logoAnimation 0.5s
           }
 
           @keyframes logoAnimation {

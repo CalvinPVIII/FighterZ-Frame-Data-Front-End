@@ -7,7 +7,7 @@ function CharacterList(props){
 const characterList={
   marginTop: '4vh',
 }
-const [characterHover, onHoverCharacter] = useState(props.characterList[0].character.bio.pictures[2])
+
   return (
     <div className="characterListWrap">
       <img className="backgroundImg" src='https://www.onlygfx.com/wp-content/uploads/2018/03/grunge-spiral-8.png'/>

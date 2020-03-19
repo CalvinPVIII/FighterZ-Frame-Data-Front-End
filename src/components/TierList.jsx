@@ -85,11 +85,10 @@ class TierList extends React.Component {
                     z-index: -1;
                     width: 90%;
                     height: 70%;
-                    transform: rotate(1deg);
-                    display: block;
-                    margin-left: 9vw;;
-                    margin-right: auto;
-                    margin-top: -5vh;
+                     transform: rotate(1deg);
+                     display: block;
+                     margin-left: 8vw;;
+                     margin-top: -5vh;
                   }
                   .characterImg:hover{
                     width: 9%;
