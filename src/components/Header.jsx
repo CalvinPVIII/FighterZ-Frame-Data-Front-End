@@ -5,15 +5,13 @@ import logo from '../images/dbfzlogo.png'
 function Header() {
 
 useEffect(() =>{
-  let animationStatus = sessionStorage.getItem("animationFinished")
-if ( animationStatus !== 'true') {
-  let header = document.getElementById('header')
-  setTimeout(function(){
+    let header = document.getElementById('header')
     sessionStorage.setItem('animationFinished', true)
+    if (sessionStorage.getItem('animationFinished') == true){
+      header.style.animation = ''
 
-  },2)
-  header.style.animation = 'logoAnimation 1s'
-}
+    }
+
 })
 console.log(sessionStorage);
   return (
@@ -23,6 +21,7 @@ console.log(sessionStorage);
           .header {
             display: flex;
             justify-content: center;
+            animation: logoAnimation 0.4s
           }
 
           @keyframes logoAnimation {

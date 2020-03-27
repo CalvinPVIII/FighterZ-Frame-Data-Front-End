@@ -29,7 +29,7 @@ componentDidMount() {
       this.setState({
         isLoaded: true,
         characterList: result,
-        selectedCharacter: result[0]
+        selectedCharacter: result[25]
       });
     },
     (error) => {
@@ -58,9 +58,7 @@ render(){
     } else if (!isLoaded) {
       return(
       <div>
-      <img className="backgroundImg" src='https://www.onlygfx.com/wp-content/uploads/2018/03/grunge-spiral-8.png'/>
-      <Header/>
-      <Navbar/>
+
       <h1>Summoning Shenron</h1>
       <style jsx>{`
           .backgroundImg{

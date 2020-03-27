@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import nimbus from "../images/nimbus.gif"
 import {Link} from 'react-router-dom'
+import ReactAnime from 'react-animejs'
 function Character(props) {
 
 
@@ -116,11 +117,11 @@ function Character(props) {
 
 
   return (
-    <div >
+    <div className="characterWrap">
 
       <div className='charProfile'>
         <h1 className="charName"> {props.character.character.bio.name}</h1>
-        <img className="charImg"src={props.character.character.bio.pictures[3]}/>
+        <img id="charImg" className="charImg"src={props.character.character.bio.pictures[3]}/>
       </div>
       <style jsx>{`
           body{
@@ -162,6 +163,10 @@ function Character(props) {
               </div>
             </div>
             <style jsx>{`
+                .characterWrap {
+                  min-width: 100px;
+                }
+
                 .movesHeader {
                   display: flex;
                   justify-content: space-evenly;
@@ -174,6 +179,8 @@ function Character(props) {
                   border: 1px solid black;
                   background-color: white;
                   box-shadow: 10px 10px;
+                  min-width: 500px;
+                  max-width: 33vw;
                 }
 
                 .moveRow {
@@ -249,6 +256,8 @@ function Character(props) {
                       margin-right: 5%;
                       background-color: white;
                       box-shadow: 10px 10px;
+                      min-width: 500px;
+                      max-width: 33vw;
                     }
                     .characterComponent {
                       display: flex;
@@ -304,6 +313,8 @@ function Character(props) {
                       margin-right: 5%;
                       background-color: white;
                       box-shadow: 10px 10px;
+                      min-width: 500px;
+                      max-width: 30vw;
                     }
 
                     `}
@@ -360,6 +371,8 @@ function Character(props) {
                         box-shadow: 10px 10px;
                         background-color: white;
                         margin-bottom: 2vh;
+                        min-width: 500px;
+                        max-width: 40vw;
                       }
 
                       .combosCard:hover {
@@ -408,6 +421,7 @@ function Character(props) {
                         position: fixed;
                         bottom: 0;
                         right: 0;
+
                       }
                       .homeImg{
                         bottom: 0;
