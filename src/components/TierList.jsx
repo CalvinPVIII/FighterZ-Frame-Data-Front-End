@@ -16,7 +16,7 @@ class TierList extends React.Component {
 
   componentDidMount() {
 
-    fetch('http://localhost:3001/tiers')
+    fetch('https://fighterz-frame-data-api.herokuapp.com/tiers')
     .then(res => res.json())
     .then(
       (result) => {
