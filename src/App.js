@@ -14,7 +14,8 @@ class App extends React.Component {
       error: null,
       isLoaded: false,
       characterList: [],
-      selectedCharacter: []
+      selectedCharacter: [],
+      tierList: [],
     };
     this.handleSelectingCharacter = this.handleSelectingCharacter.bind(this)
   }
@@ -27,7 +28,6 @@ componentDidMount() {
   .then(
     (result) => {
       this.setState({
-        isLoaded: true,
         characterList: result,
         selectedCharacter: result[25]
       });
@@ -39,6 +39,24 @@ componentDidMount() {
         error
       });
     }
+  ).then(
+    fetch('https://fighterz-frame-data-api.herokuapp.com/tiers')
+    .then(res => res.json())
+    .then(
+      (result) => {
+        this.setState({
+          isLoaded: true,
+          tierList: result,
+        });
+      },
+      (error) => {
+        console.log(error);
+        this.setState({
+          isLoaded: true,
+          tierList: error
+        });
+      }
+    )
   )
 }
 
@@ -86,7 +104,7 @@ render(){
             <Switch>
               <Route exact path='/' render={()=><CharacterList characterList={this.state.characterList} onCharacterSelect={this.handleSelectingCharacter} />} />
               <Route path='/character' render={()=><Character character={this.state.selectedCharacter} />} />
-              <Route path="/tierlist" render={()=><TierList onCharacterSelect={this.handleSelectingCharacter} characterList={this.state.characterList} />} />
+              <Route path="/tierlist" render={()=><TierList onCharacterSelect={this.handleSelectingCharacter} characterList={this.state.characterList} tierList={this.state.tierList} />} />
               <Route path='/info' component={Info}/>
             </Switch>
           </div>

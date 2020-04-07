@@ -4,16 +4,6 @@ import logo from '../images/dbfzlogo.png'
 
 function Header() {
 
-useEffect(() =>{
-    let header = document.getElementById('header')
-    sessionStorage.setItem('animationFinished', true)
-    if (sessionStorage.getItem('animationFinished') == true){
-      header.style.animation = ''
-
-    }
-
-})
-console.log(sessionStorage);
   return (
     <div id="header"className='header'>
       <img src={logo}/>

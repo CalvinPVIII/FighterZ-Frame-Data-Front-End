@@ -29,6 +29,7 @@ function Info() {
       <h1>How to read combo notations</h1>
       <p>Dragon Ball FighterZ uses whats referred to as 'Numpad Notation', meaning that the direction commands correlate to the keys on a numpad.</p>
       <img className="notationImage"src={notation}/>
+      <p>For example, a simple combo of 5L, 2L, 6H, can be seen as standing light, crouching light, forward heavy.</p>
       <h1>Attack Inputs</h1>
       <p>Dragon Ball FighterZ has four main attack buttons: ligh, medium, heavy, and special, referred to as L, M, H, and S.</p>
       <p>On Playstation 4: L equals Square, M equals Triangle, H equals Circle, and S equals Cross (or X)</p>
