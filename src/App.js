@@ -5,8 +5,6 @@ import CharacterList from './components/CharacterList'
 import Character from './components/Character'
 import TierList from './components/TierList'
 import Info from './components/Info'
-import Header from './components/Header'
-import Navbar from './components/Navbar'
 class App extends React.Component {
   constructor(props){
     super(props);
@@ -17,7 +15,6 @@ class App extends React.Component {
       selectedCharacter: [],
       tierList: [],
     };
-    this.handleSelectingCharacter = this.handleSelectingCharacter.bind(this)
   }
 
 
@@ -60,15 +57,6 @@ componentDidMount() {
   )
 }
 
-handleSelectingCharacter(id){
-  let newCharacter;
-  this.state.characterList.map(function(character){
-    if (character.id === id) {
-      newCharacter = character
-    }
-  })
-this.setState({selectedCharacter: newCharacter});
-}
 render(){
   const { error, isLoaded, items } = this.state;
   if (error) {
@@ -99,10 +87,23 @@ render(){
           </div>
         )
       } else {
+        console.log(this.state.characterList)
         return (
           <div >
             <Switch>
-              <Route exact path='/' render={()=><CharacterList characterList={this.state.characterList} onCharacterSelect={this.handleSelectingCharacter} />} />
+              <Route exact path='/' render={()=><CharacterList characterList={this.state.characterList}/>} />
+              {this.state.characterList.map((character)=>
+                <Route path={`/${character.character.bio.name.split(" ").join("")}`} render={(props)=>
+                <Character
+                name = {character.character.bio.name}
+                moves = {character.character.moves}
+                assists = {character.character.assists}
+                supers = {character.character.supers}
+                combos = {character.character.combos}
+                pictures = {character.character.bio.pictures}
+                />}
+                />
+              )}
               <Route path='/character' render={()=><Character character={this.state.selectedCharacter} />} />
               <Route path="/tierlist" render={()=><TierList onCharacterSelect={this.handleSelectingCharacter} characterList={this.state.characterList} tierList={this.state.tierList} />} />
               <Route path='/info' component={Info}/>

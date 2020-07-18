@@ -1,10 +1,13 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import nimbus from "../images/nimbus.gif"
 import {Link} from 'react-router-dom'
 import ReactAnime from 'react-animejs'
+import ParticleEffectButton from 'react-particle-effect-button'
+
 function Character(props) {
 
-
+  const [animationState, setAnimationState] = useState(true)
+  const [animationComplete, setAnimationComplete] = useState(false)
 
   function onVideoClick(index){
     let video = document.getElementById(index)
@@ -34,83 +37,106 @@ function Character(props) {
 
   let accentColor = 'rgba(0, 0, 0,0)';
 
-  if (props.character.character.bio.name === 'Android 21') {
+  let characterImgDiv = (
+    <div className="charImg"> 
+      <img id="charImg" src={props.pictures[3]}/>
+    </div>
+  )
+
+  if (props.name === 'Android 21') {
     accentColor = '#A63AB0'
-  }else if (props.character.character.bio.name === 'Android 16') {
+  }else if (props.name === 'Android 16') {
     accentColor = '#387763'
-  }else if (props.character.character.bio.name === 'Android 17') {
+  }else if (props.name === 'Android 17') {
     accentColor = '#438388'
-  }else if (props.character.character.bio.name === 'Android 18') {
+  }else if (props.name === 'Android 18') {
     accentColor = '#4B79CC'
-  }else if (props.character.character.bio.name === 'Bardock') {
+  }else if (props.name === 'Bardock') {
     accentColor = '#436577'
-  }else if (props.character.character.bio.name === 'Beerus') {
+  }else if (props.name === 'Beerus') {
     accentColor = '#7669B4'
-  }else if (props.character.character.bio.name === 'DBS Broly') {
+  }else if (props.name === 'DBS Broly') {
     accentColor = '#2F7928'
-  }else if (props.character.character.bio.name === 'DBZ Broly') {
+  }else if (props.name === 'DBZ Broly') {
     accentColor = '#1A795A'
-  }else if (props.character.character.bio.name === 'Captain Ginyu') {
+  }else if (props.name === 'Captain Ginyu') {
     accentColor = '#D45890'
-  }else if (props.character.character.bio.name === 'Cell') {
+  }else if (props.name === 'Cell') {
     accentColor = '#5BA574'
-  }else if (props.character.character.bio.name === 'Cooler') {
+  }else if (props.name === 'Cooler') {
     accentColor = '#4A5EA3'
-  }else if (props.character.character.bio.name === 'Frieza') {
+  }else if (props.name === 'Frieza') {
     accentColor = '#B180E2'
-  }else if (props.character.character.bio.name === 'Gogeta') {
+  }else if (props.name === 'Gogeta') {
     accentColor = '#324486'
-  }else if (props.character.character.bio.name === 'Adult Gohan') {
+  }else if (props.name === 'Adult Gohan') {
     accentColor = '#5B768E'
-  }else if (props.character.character.bio.name === 'Teen Gohan') {
+  }else if (props.name === 'Teen Gohan') {
     accentColor = '#C15669'
-  }else if (props.character.character.bio.name === 'Goku') {
+  }else if (props.name === 'Goku') {
     accentColor = '#B14F5B'
-  }else if (props.character.character.bio.name === 'Super Saiyan Goku') {
+  }else if (props.name === 'Super Saiyan Goku') {
     accentColor = '#C97891'
-  }else if (props.character.character.bio.name === 'Super Saiyan Blue Goku') {
+  }else if (props.name === 'Super Saiyan Blue Goku') {
     accentColor = '#7BCBE6'
-  }else if (props.character.character.bio.name === 'GT Goku') {
+  }else if (props.name === 'GT Goku') {
     accentColor = '#7379C3'
-  }else if (props.character.character.bio.name === 'Super Saiyan Rosé Goku Black') {
+  }else if (props.name === 'Super Saiyan Rosé Goku Black') {
     accentColor = '#826BC8'
-  }else if (props.character.character.bio.name === 'Gotenks') {
+  }else if (props.name === 'Gotenks') {
     accentColor = '#355795'
-  }else if (props.character.character.bio.name === 'Hit') {
+  }else if (props.name === 'Hit') {
     accentColor = '#91D3DC'
-  }else if (props.character.character.bio.name === 'Janemba') {
+  }else if (props.name === 'Janemba') {
     accentColor = '#7B5CA8'
-  }else if (props.character.character.bio.name === 'Jiren') {
+    characterImgDiv = (
+      <div className="charImg">
+          <ParticleEffectButton
+            hidden={animationState}
+            color='#f24'
+            type='rectangle'
+            direction="right"
+            size={10}
+            particlesAmountCoefficient={10}
+            speed={5}
+            oscillationCoefficient={100}
+          >
+          <img id="charImg" src={props.pictures[3]}/>
+          </ParticleEffectButton>
+        </div>
+    )
+    setTimeout(function(){setAnimationState(false)}, 1000)
+  }else if (props.name === 'Jiren') {
     accentColor = '#E2252A'
-  }else if (props.character.character.bio.name === 'Kid Buu') {
+  }else if (props.name === 'Kid Buu') {
     accentColor = '#BD6ABE'
-  }else if (props.character.character.bio.name === 'Kefla') {
+  }else if (props.name === 'Kefla') {
     accentColor = '#C24344'
-  }else if (props.character.character.bio.name === 'Krillin') {
+  }else if (props.name === 'Krillin') {
     accentColor = '#FBFBCA'
-  }else if (props.character.character.bio.name === 'Majin Buu') {
+  }else if (props.name === 'Majin Buu') {
     accentColor = '#A14A9C'
-  }else if (props.character.character.bio.name === 'Nappa') {
+  }else if (props.name === 'Nappa') {
     accentColor = '#8D4B10'
-  }else if (props.character.character.bio.name === 'Piccolo') {
+  }else if (props.name === 'Piccolo') {
     accentColor = '#37378D'
-  }else if (props.character.character.bio.name === 'Tien Shinhan') {
+  }else if (props.name === 'Tien Shinhan') {
     accentColor = '#E5F09B'
-  }else if (props.character.character.bio.name === 'Trunks') {
+  }else if (props.name === 'Trunks') {
     accentColor = '#A5BDFF'
-  }else if (props.character.character.bio.name === 'Vegeta') {
+  }else if (props.name === 'Vegeta') {
     accentColor = '#6F73C2'
-  }else if (props.character.character.bio.name === 'Super Saiyan Vegeta') {
+  }else if (props.name === 'Super Saiyan Vegeta') {
     accentColor = '#6DA9DF'
-  }else if (props.character.character.bio.name === 'Super Saiyan Blue Vegeta') {
+  }else if (props.name === 'Super Saiyan Blue Vegeta') {
     accentColor = '#7BCBE6'
-  }else if (props.character.character.bio.name === 'Vegito') {
+  }else if (props.name === 'Vegito') {
     accentColor = '#6C8CD4'
-  }else if (props.character.character.bio.name === 'Videl') {
+  }else if (props.name === 'Videl') {
     accentColor = '#A13C9F'
-  }else if (props.character.character.bio.name === 'Yamcha') {
+  }else if (props.name === 'Yamcha') {
     accentColor = '#DFDE9A'
-  }else if (props.character.character.bio.name === 'Zamasu') {
+  }else if (props.name === 'Zamasu') {
     accentColor = '#8F74BA'
   }
 
@@ -120,8 +146,8 @@ function Character(props) {
     <div className="characterWrap">
 
       <div className='charProfile'>
-        <h1 className="charName"> {props.character.character.bio.name}</h1>
-        <img id="charImg" className="charImg"src={props.character.character.bio.pictures[3]}/>
+        <h1 className="charName"> {props.name}</h1>
+        {characterImgDiv}
       </div>
       <style jsx>{`
           body{
@@ -131,12 +157,14 @@ function Character(props) {
             font-size: 800%;
             color: white;
             font-family: 'Neuton', serif;
-            text-shadow: 3px 3px black
+            text-shadow: 3px 3px black;
           }
           .charImg {
             float: right;
             margin-top: -20vh;
-
+            z-index: -1; 
+            display: block;
+            position: relative;
           }
           `}
         </style>
@@ -151,7 +179,7 @@ function Character(props) {
                 <h1> Guard</h1>
               </div>
               <div className="movesData">
-                {props.character.character.moves.map((move, index=0)=>
+                {props.moves.map((move, index=0)=>
                   <div className="tableRow">
 
                     <h2 className="moveRow"> {move['MOVE']}</h2>
@@ -221,7 +249,7 @@ function Character(props) {
                   <h1 className="assistH2"> Blockstun</h1>
                 </div>
                 <div className="assistData">
-                  {props.character.character.assists.map((assist)=>
+                  {props.assists.map((assist)=>
                     <div className="assistRow">
                       <h2 className='row'> {assist['TYPE']}</h2>
                       <h2 className='row'> {assist['STARTUP']}</h2>
@@ -285,7 +313,7 @@ function Character(props) {
                     <h1> Advantage</h1>
                   </div>
                   <div className='supersData'>
-                    {props.character.character.supers.map((move)=>
+                    {props.supers.map((move)=>
                       <div className="assistRow">
                         <h2 className='row'> {move['MOVE']}</h2>
                         <h2 className='row'> {move['STARTUP']}</h2>
@@ -321,7 +349,7 @@ function Character(props) {
 
                   </style>
                   <h1 className="title">BnB's</h1>
-                  {props.character.character.combos.map((combo, index)=>
+                  {props.combos.map((combo, index)=>
                     <div className="combosCard" onClick={()=>onVideoClick(index)}>
                       <div className='comboNotation'>
                         <div className='comboEntry'>

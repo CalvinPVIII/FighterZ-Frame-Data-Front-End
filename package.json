@@ -10,6 +10,7 @@
     "react": "^16.13.0",
     "react-animejs": "^0.5.4",
     "react-dom": "^16.13.0",
+    "react-particle-effect-button": "^1.0.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0"
   },

@@ -17,7 +17,7 @@ window.scrollTo(0, 0);
       <Navbar/>
       <div style={characterList}>
       {props.characterList.map((character)=>
-        <Link to={'/character'} onClick={()=>{props.onCharacterSelect(character.id)}}>   <img className="characterImg" src={character.character.bio.pictures[0]}/> </Link>
+        <Link to={`/${character.character.bio.name.split(" ").join("")}`}>   <img className="characterImg" src={character.character.bio.pictures[0]}/> </Link>
       )}
       </div>
       <style jsx>{`
