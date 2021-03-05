@@ -9,6 +9,16 @@ function CharacterList(props){
 const characterList={
   marginTop: '4vh',
 }
+
+let filteredCharacters = [];
+props.characterList.forEach((character)=>{
+  character.character.moves.forEach((move)=>{
+    if(move['MOVE'] === '5L' && move['FIRST ACTIVE'] === '6f'){
+      filteredCharacters.push(character)
+    }
+
+  })
+})
 window.scrollTo(0, 0);
   return (
     <div className="characterListWrap">
@@ -47,6 +57,9 @@ window.scrollTo(0, 0);
 
 
             `}</style>
+         {filteredCharacters.map((character)=>
+             <p>{character.character.bio.name}</p>
+          )}
           <Footer className="footer"/>
     </div>
   );

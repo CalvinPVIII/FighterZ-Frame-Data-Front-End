@@ -20,7 +20,7 @@ class App extends React.Component {
 
 
 componentDidMount() {
-  fetch('https://fighterz-frame-data-api.herokuapp.com/characters')
+  fetch('http://localhost:3001/characters')
   .then(res => res.json())
   .then(
     (result) => {
@@ -94,14 +94,14 @@ render(){
               <Route exact path='/' render={()=><CharacterList characterList={this.state.characterList}/>} />
               {this.state.characterList.map((character)=>
                 <Route path={`/${character.character.bio.name.split(" ").join("")}`} render={(props)=>
-                <Character
-                name = {character.character.bio.name}
-                moves = {character.character.moves}
-                assists = {character.character.assists}
-                supers = {character.character.supers}
-                combos = {character.character.combos}
-                pictures = {character.character.bio.pictures}
-                />}
+                  <Character
+                    name = {character.character.bio.name}
+                    moves = {character.character.moves}
+                    assists = {character.character.assists}
+                    supers = {character.character.supers}
+                    combos = {character.character.combos}
+                    pictures = {character.character.bio.pictures}
+                  />}
                 />
               )}
               <Route path='/character' render={()=><Character character={this.state.selectedCharacter} />} />

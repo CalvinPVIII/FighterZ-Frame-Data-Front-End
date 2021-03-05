@@ -8,6 +8,49 @@ function Character(props) {
 
   const [animationState, setAnimationState] = useState(true)
   const [animationComplete, setAnimationComplete] = useState(false)
+  const [selectedMove, setSelectedMove] = useState('')
+  const [moreMoveInfoVisibility, setMoreMoveInfoVisibility] = useState(false)
+
+  function onTitleClick(card){
+    let element = document.getElementsByClassName(card)
+    if (card === 'combosCard'){
+      if (!element[0].classList.value.split(' ').includes('openCard') && !element[1].classList.value.split(' ').includes('openCard') ){
+        element[0].classList.remove('closedCard')
+        element[0].classList.add('openCard')
+        element[1].classList.remove('closedCard')
+        element[1].classList.add('openCard')
+      }else{
+        element[0].classList.add('closedCard')
+        element[0].classList.remove('openCard')
+        element[1].classList.add('closedCard')
+        element[1].classList.remove('openCard')
+      }
+    }
+    if (!element[0].classList.value.split(' ').includes('openCard')){
+      element[0].classList.remove('closedCard')
+      element[0].classList.add('openCard')
+    }else{
+      element[0].classList.add('closedCard')
+      element[0].classList.remove('openCard')
+    }
+
+    
+  }
+
+  function onMoveClick(move){
+    let moveArray = Object.entries(move)
+    setSelectedMove(moveArray)
+    setMoreMoveInfoVisibility(true)
+    let page = document.getElementsByClassName('clickableCards')[0]
+    page.classList.add("hidden")
+
+  }
+
+  function onExpandedMoveClose(){
+    setMoreMoveInfoVisibility(false)
+    let page = document.getElementsByClassName('clickableCards')[0]
+    page.classList.remove("hidden")
+  }
 
   function onVideoClick(index){
     let video = document.getElementById(index)
@@ -142,16 +185,77 @@ function Character(props) {
 
 
 
+  let moreMovePanel
+  if (moreMoveInfoVisibility && selectedMove){
+     moreMovePanel = (
+      <>
+        <div className="selectedMoveCard">
+          <div className="selectedMoveCardHeader" onClick={()=> onExpandedMoveClose()}>
+            <p className='placeHolder'></p>
+            <p className="expandedInfoTitle">Expanded Info</p> 
+            <p className="expandedInfoClose">Close</p>
+            
+          </div>
+          {selectedMove.map((move)=>
+            <div className="selectedMoveRow">{move[0]}: {move[1]}</div>
+          )}
+        </div>
+        <style jsx>{`
+          .selectedMoveCard{
+            display: flex;
+            flex-flow: column wrap;
+            width: 25vw;
+            justifY-content: flex-end;
+            border: 1px solid black;
+            background-color: white;
+          }
+          .selectedMoveCardInfo{
+            
+          }
+          .selectedMoveCardHeader{
+            display: flex;
+            flex-direction; row;
+            justify-content: space-between;
+            border-bottom: 1px solid black;
+            background-color: ${accentColor};
+            font-weight: bold;
+            font-size: 2vh;
+            height: 5vh;
+          }
+          .selectedMoveRow{
+            text-align: center;
+            border-bottom: 1px solid black;
+            font-size: 16px
+          }
+
+          .expandedInfoTitle{
+            padding-left: 2vw;
+          }
+          
+          .expandedInfoClose{
+            padding-right: 1vw;
+          }
+
+          .expandedInfoClose:hover{
+            cursor: pointer;
+
+          }
+        `}</style>
+      </>
+    
+    )
+ 
+  }
+
   return (
     <div className="characterWrap">
 
       <div className='charProfile'>
-        <h1 className="charName"> {props.name}</h1>
         {characterImgDiv}
       </div>
       <style jsx>{`
-          body{
-            overflow: auto;
+          .charProfile {
+            
           }
           .charName {
             font-size: 800%;
@@ -160,18 +264,26 @@ function Character(props) {
             text-shadow: 3px 3px black;
           }
           .charImg {
-            float: right;
-            margin-top: -20vh;
+            float: left;
+            
+            
             z-index: -1; 
-            display: block;
+           
             position: relative;
+          
           }
           `}
         </style>
-        <div className='characterComponent'>
-          <div className='midPanel'>
-            <h1 className="title">Moves</h1>
-            <div className="movesCard">
+        <div className="pageContent">
+        <div className="charName">
+          <h4>{props.name}</h4>
+        </div>
+        <div className="moreMoveInfo">
+          {moreMovePanel}
+        </div>
+        <div className = 'clickableCards'>
+          <h2 className='titles'  onClick={() => onTitleClick("movesCard")}>Moves</h2>
+          <div className="movesCard closedCard" >
               <div className="movesHeader">
                 <h1> Move</h1>
                 <h1> Startup</h1>
@@ -180,8 +292,7 @@ function Character(props) {
               </div>
               <div className="movesData">
                 {props.moves.map((move, index=0)=>
-                  <div className="tableRow">
-
+                  <div className="tableRow" onClick={()=> onMoveClick(move)}>
                     <h2 className="moveRow"> {move['MOVE']}</h2>
                     <h2 className="startupRow"> {move['FIRST ACTIVE']}</h2>
                     <h2 className="advantageRow"> {move['ADVANTAGE']}</h2>
@@ -190,11 +301,106 @@ function Character(props) {
                 )}
               </div>
             </div>
-            <style jsx>{`
-                .characterWrap {
-                  min-width: 100px;
-                }
+          <h2 className='titles' onClick={()=> onTitleClick('assistCard')}>Assists</h2>
+          <div className='assistCard closedCard'>
+                <div className='assistHeader'>
+                  <h1 className="assistH2"> Type</h1>
+                  <h1 className="assistH2"> Startup</h1>
+                  <h1 className="assistH2"> Blockstun</h1>
+                </div>
+                <div className="assistData">
+                  {props.assists.map((assist)=>
+                    <div className="assistRow">
+                      <h2 className='row'> {assist['TYPE']}</h2>
+                      <h2 className='row'> {assist['STARTUP']}</h2>
+                      <h2 className='row'> {assist['BLOCKSTUN']}</h2>
+                    </div>
+                  )}
 
+                </div>
+                </div>
+          <h2 className='titles' onClick={()=> onTitleClick('supersCard')}>Supers</h2>
+          <div className="supersCard closedCard">
+                  <div className='supersHeader'>
+                    <h1> Move</h1>
+                    <h1> Startup</h1>
+                    <h1> Advantage</h1>
+                  </div>
+                  <div className='supersData'>
+                    {props.supers.map((move)=>
+                      <div className="assistRow">
+                        <h2 className='row'> {move['MOVE']}</h2>
+                        <h2 className='row'> {move['STARTUP']}</h2>
+                        <h2 className='row'> {move['ADVANTAGE']}</h2>
+                      </div>
+                    )}
+                  </div>
+                </div>
+          <h2 className="titles" onClick={()=> onTitleClick('bnbsCard')}>BnB's</h2>
+          <div className="bnbsCard closedCard">
+                  {props.combos.map((combo, index)=>
+                    <div className="combosCard" onClick={()=>onVideoClick(index)}>
+                      <div className='comboNotation'>
+                        <div className='comboEntry'>
+                          <div className="comboRow">
+                            <div className="comboHeader">
+                              <h2> {combo['position'].charAt(0).toUpperCase() + combo['position'].slice(1)}</h2>
+                            </div>
+                            <h2 className='notation'> {combo['notation']}</h2>
+                            <div >
+                              <iframe className='video' src={combo['video']} frameborder="0" id={index}></iframe>
+                              <div id={index + ' div'}>
+                                <p id={index + ' text'}>Click to expand</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                  </div>
+        </div>
+        </div>
+        <style jsx>{`
+        .pageContent{
+          margin-left: 50vw;
+          display: block;
+          z-index: 1;
+         }
+        .clickableCards{
+          display: flex;
+          justify-content: flex-end;
+          text-align: center;
+          flex-flow: column;
+          max-width: 300px;
+        }
+
+        .titles {
+          border: 1px solid black;
+          font-size: 30px;
+          background-color: ${accentColor};
+          width: 33vw;
+
+        }
+        .titles:hover {
+          cursor: pointer;
+        }
+        .movesData:hover {
+          cursor: pointer;
+        }
+        `}</style>
+
+
+
+
+
+
+
+       
+            
+            
+            <style jsx>{`
+                
                 .movesHeader {
                   display: flex;
                   justify-content: space-evenly;
@@ -210,7 +416,17 @@ function Character(props) {
                   min-width: 500px;
                   max-width: 33vw;
                 }
+                .openCard{
 
+                }
+                .moreMoveInfo{
+                  
+
+                }
+
+                .closedCard{
+                  display: none;
+                }
                 .moveRow {
                   width: 25%;
 
@@ -239,31 +455,16 @@ function Character(props) {
 
                 }
                 `}</style>
-            </div>
-            <div className='rightPanel'>
-              <h1 className="rightTitle">Assists</h1>
-              <div className='assistCard'>
-                <div className='assistHeader'>
-                  <h1 className="assistH2"> Type</h1>
-                  <h1 className="assistH2"> Startup</h1>
-                  <h1 className="assistH2"> Blockstun</h1>
-                </div>
-                <div className="assistData">
-                  {props.assists.map((assist)=>
-                    <div className="assistRow">
-                      <h2 className='row'> {assist['TYPE']}</h2>
-                      <h2 className='row'> {assist['STARTUP']}</h2>
-                      <h2 className='row'> {assist['BLOCKSTUN']}</h2>
-                    </div>
-                  )}
-
-                </div>
+                
+            
+              
                 <style jsx>{`
                     .assistHeader {
                       display: flex;
                       justify-content: space-evenly;
                       background-color: ${accentColor};
                       border-bottom: 1px solid black;
+                      
                     }
                     .row {
                       width: 33%;
@@ -279,7 +480,7 @@ function Character(props) {
                       border-bottom: 1px solid black;
                     }
                     .assistCard {
-                      width: 30vw;
+                      width: 33vw;
                       border: 1px solid black;
                       margin-right: 5%;
                       background-color: white;
@@ -287,12 +488,7 @@ function Character(props) {
                       min-width: 500px;
                       max-width: 33vw;
                     }
-                    .characterComponent {
-                      display: flex;
-                      flex-flow: column wrap;
-                      justify-content: space-between;
-                      height: 100vh
-                    }
+                    
                     .leftPanel {
                       max-width: 1228px;
                       height: 100vh;
@@ -303,25 +499,6 @@ function Character(props) {
                     }
 
                     `}</style>
-
-                </div>
-                <h1 className="rightTitle">Supers</h1>
-                <div className="supersCard">
-                  <div className='supersHeader'>
-                    <h1> Move</h1>
-                    <h1> Startup</h1>
-                    <h1> Advantage</h1>
-                  </div>
-                  <div className='supersData'>
-                    {props.supers.map((move)=>
-                      <div className="assistRow">
-                        <h2 className='row'> {move['MOVE']}</h2>
-                        <h2 className='row'> {move['STARTUP']}</h2>
-                        <h2 className='row'> {move['ADVANTAGE']}</h2>
-                      </div>
-                    )}
-                  </div>
-                </div>
                 <style jsx>{`
                     .supersHeader {
                       display: flex;
@@ -336,39 +513,19 @@ function Character(props) {
                       border-bottom: 1px solid black;
                     }
                     .supersCard {
-                      width: 30vw;
+                      width: 33vw;
                       border: 1px solid black;
                       margin-right: 5%;
                       background-color: white;
                       box-shadow: 10px 10px;
                       min-width: 500px;
-                      max-width: 30vw;
+                      
                     }
 
                     `}
 
                   </style>
-                  <h1 className="title">BnB's</h1>
-                  {props.combos.map((combo, index)=>
-                    <div className="combosCard" onClick={()=>onVideoClick(index)}>
-                      <div className='comboNotation'>
-                        <div className='comboEntry'>
-                          <div className="comboRow">
-                            <div className="comboHeader">
-                              <h2> {combo['position'].charAt(0).toUpperCase() + combo['position'].slice(1)}</h2>
-                            </div>
-                            <h2 className='notation'> {combo['notation']}</h2>
-                            <div >
-                              <iframe className='video' src={combo['video']} frameborder="0" id={index}></iframe>
-                              <div id={index + ' div'}>
-                                <p id={index + ' text'}>Click to expand</p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  )}
+                  
                   <style jsx>{`
                       .video{
                         height: 0vh;
@@ -395,7 +552,7 @@ function Character(props) {
                       }
                       .combosCard {
                         border: 1px solid black;
-                        width: 40vw;
+                        width: 33vw;
                         box-shadow: 10px 10px;
                         background-color: white;
                         margin-bottom: 2vh;
@@ -438,7 +595,6 @@ function Character(props) {
                         margin-right: 10vw;
                       }
                       `}</style>
-                  </div>
                   <div className="homeButton">
                     <Link to='/'> <img src={nimbus} className="homeImg"/><p className='homeText'>Home</p></Link>
                   </div>
@@ -471,10 +627,13 @@ function Character(props) {
                       a{
                         text-decoration: none;
                       }
+                      .hidden{
+                        display: none;
+                      }
                       `}</style>
                   </div>
 
-                </div>
+                
               );
             }
 
