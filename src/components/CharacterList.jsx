@@ -8,13 +8,18 @@ import Footer from './Footer'
 function CharacterList(props){
 const [filteredCharacters, setFilteredCharactersList] = useState(props.characterList)
 const [advancedSearchVisibile, setAdvancedSearchVisible] = useState(false)
+const [moveFrameFilter, setMoveFrameFilter] = useState('')
+const [selectedMoveFilter, setSelectedMoveFilter] = useState('5L')
 
 function onMoveFilterSelect(e) {
   let newCharacterList = []
+  setSelectedMoveFilter(e.target.value)
   let filter = e.target.value
   props.characterList.forEach((character)=>{
     character.character.moves.forEach((move)=>{
-      if(move['MOVE'] === filter){
+      if(move['MOVE'] === filter && moveFrameFilter === ''){
+        newCharacterList.push(character)
+      }else if(move['MOVE'] === filter && move['FIRST ACTIVE'] === moveFrameFilter + 'f'){
         newCharacterList.push(character)
       }
       
@@ -25,6 +30,7 @@ function onMoveFilterSelect(e) {
 
 function onFrameFormChange(e){
   let newCharacterList = []
+  setMoveFrameFilter(e.target.value)
   let filter = e.target.value
   if (filter === ""){
     newCharacterList = props.characterList
@@ -32,7 +38,7 @@ function onFrameFormChange(e){
 
     props.characterList.forEach((character)=>{
       character.character.moves.forEach((move)=>{
-        if(move['MOVE'] === '5L' && move['FIRST ACTIVE'] === filter + 'f'){
+        if(move['MOVE'] === selectedMoveFilter && move['FIRST ACTIVE'] === filter + 'f'){
           newCharacterList.push(character)
         }
         
@@ -43,8 +49,10 @@ function onFrameFormChange(e){
 } 
 
 
-function onAdvancedFormReset(){
+function onAdvancedSearchReset(){
   setFilteredCharactersList(props.characterList)
+  setMoveFrameFilter("")
+  setSelectedMoveFilter('5L')
 }
 
 
@@ -54,7 +62,7 @@ if (advancedSearchVisibile === true){
   advancedSearchArea = (
     <>
     <p>Move</p>
-    <select onChange={onMoveFilterSelect}>
+    <select onChange={onMoveFilterSelect} value={selectedMoveFilter}>
       <option value='5L'>5L</option>
       <option value='5M'>5M</option>
       <option value='5H'>5H</option>
@@ -65,8 +73,8 @@ if (advancedSearchVisibile === true){
       
     </select>
     <p>Frames</p>
-      <input type="number" onChange={onFrameFormChange}/>
-      <p onClick={()=>setFilteredCharactersList(props.characterList)}>Reset</p>
+      <input type="number" value = {moveFrameFilter} onChange={onFrameFormChange}/>
+      <p onClick={onAdvancedSearchReset}>Reset</p>
     </>
   )
 }else{
