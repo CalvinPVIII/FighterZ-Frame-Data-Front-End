@@ -20,7 +20,7 @@ class App extends React.Component {
 
 
 componentDidMount() {
-  fetch('http://localhost:3001/characters')
+  fetch('https://fighterz-frame-data-api.herokuapp.com/characters')
   .then(res => res.json())
   .then(
     (result) => {
